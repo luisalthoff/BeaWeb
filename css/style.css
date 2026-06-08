@@ -1,0 +1,576 @@
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+			:root { 
+			--corBtn: rgb(0, 0, 200);
+			--corDflt: black;
+      --corCnzEsc: #555;
+			--fntTit: 20px;
+			--fntBtn: 28px;
+      --fntDia: 20px;
+			}
+
+      body {
+        font-family: helvetica, system-ui, Arial, sans-serif;
+        margin: auto;
+        color: var(--corCnzEsc);
+				position: relative;
+				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+      
+			.cabeca {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: var(--fntTit);
+        padding: 10px;
+				margin-inline: auto;
+				padding-inline: 30px;
+      }
+      
+      .cabeca2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: var(--fntTit);
+        padding: 10px;
+				margin-inline: auto;
+				padding-inline: 30px;
+        height: 60px;       
+      }
+
+      #calendarPanel {
+				font-size: var(--fntDia);			
+			}
+
+      #calendarGrid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+				font-size: var(--fntDia);
+        color: var(--corDflt)
+      }
+
+      #menuBottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 60px;
+        padding-bottom: 40px;
+      }
+
+      .day {
+        height: 38px;
+        width: 38px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+			button {
+				font-size: var(--fntBtn);
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			#btnAddClient {
+				font-size: 32px;
+				background-color: transparent;
+				color: var(--corBtn);
+			}
+
+			header.hdrClient {
+				color: black;
+				text-align: center;
+				padding-left: 40px;
+				font-size: var(--fntTit);
+			}
+      #title {
+        font-size: var(--fntTit);
+        display: grid;
+        place-items: center;
+      }
+
+      .appointment {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0;
+      }
+
+      .billingCard {
+        background: white;
+        margin: 10px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .billingHeader {
+        background: #4a90e2;
+        color: white;
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+      }
+
+      .billingLine {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 14px;
+        border-top: 1px solid #eee;
+      }
+
+      .blue {
+        background: #4a90e2;
+      }
+
+      #billingControls {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+        background: white;
+      }
+
+      #billingControls select {
+        flex: 1;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      #bottomNav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        max-width: 430px;
+        height: 60px;
+        background: transparent;
+        border-top: 1px solid #ddd;
+        display: flex;
+      }
+
+      #bottomNav button {
+        flex: 1;
+        border: none;
+        background: rgba(255, 255, 255, 0.5);
+        font-size: 24px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .buttons button {
+        padding: 10px 20px;
+      }
+
+      #calendarHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+				font-size: var(--fntTit);
+      }
+
+      #calendarHeader button {
+        border: none;
+        background: none;
+				font-size: var(--fntTit);        
+        cursor: pointer;
+				color: var(--corCnzEsc);
+      }
+
+      #calendarPanel {
+        padding: 20px;
+      }
+
+      #calendarPanel input {
+        width: 100%;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .clientCard {
+        background: white;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .clientColor {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: auto auto 10px;
+      }
+
+      .clientColor.blue {
+        background: #4a90e2;
+      }
+
+      .clientColor.green {
+        background: #43a047;
+      }
+
+      .clientColor.orange {
+        background: #fb8c00;
+      }
+
+      .clientColor.purple {
+        background: #8e24aa;
+      }
+
+      .clientName {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .clientPayment {
+        font-size: 18px;
+      }
+
+      .clientSchedule {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .day.empty {
+        visibility: hidden;
+      }
+
+      .day.selected {
+        background: rgba(255, 255, 255, 0.9);
+        font-weight: 800;
+        transform: scale(1.2);
+      }
+
+      .day.today {
+        color: blue;
+        font-weight: 800;
+        transform: scale(1.1);
+      }
+
+      .deleteSchedule {
+        width: 40px;
+      }
+
+      .green {
+        background: #43a047;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .hourLabel {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .hourRow {
+        border-top: 1px solid #ddd;
+        min-height: 60px;
+        padding-top: 6px;
+      }
+
+      .leftSide {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        z-index: 1000;
+      }
+
+      .modal.bottomModal {
+        align-items: flex-end;
+      }
+
+      .modal.centerModal {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modalContent {
+        background: white;
+        width: 90%;
+        max-width: 350px;
+        border-radius: 12px;
+        padding: 20px;
+      }
+
+      .modalContent h2 {
+        margin-bottom: 15px;
+      }
+
+      .modalContent input {
+        width: 100%;
+        height: 42px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        font-size: 16px;
+      }
+
+      .orange {
+        background: #fb8c00;
+      }
+
+      .payBadge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .payBadge.paid {
+        background: #20c943;
+      }
+
+      .payBadge.pending {
+        background: #ff3b30;
+      }
+
+      #paymentMonths {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      .paymentMonth {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .paymentMonth.selected {
+        background: #43a047;
+        color: white;
+      }
+
+      .pill {
+        color: white;
+        border-radius: 10px;
+        padding: 14px;
+        cursor: pointer;
+        min-width: 90px;
+        text-align: center;
+      }
+
+      .purple {
+        background: #8e24aa;
+      }
+
+      .shareBillingBtn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .scheduleInputRow {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .scheduleInputRow input,
+      .scheduleInputRow select {
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .scheduleItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #004cff;
+        font-size: 16px;
+        margin: 6px 0;
+      }
+
+      .scheduleItem button {
+        border: none;
+        background: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .sheet {
+        background: white;
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .sheet h2 {
+        margin-bottom: 15px;
+      }
+
+      .sheet input,
+      .sheet select {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+        padding: 6px;
+      }
+
+      .sheet label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 4px;
+        font-weight: bold;
+      }
+
+      .status {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .vidro {
+        margin-bottom: 20px;
+        padding: 12px;
+        padding-top: 0px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+      
+      #weekdays {   
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+				height: 10px;
+				border-top: 2px solid rgba(0,0,0,0.1);
+				border-bottom: 2px solid rgba(0,0,0,0.1);
+				align-content: center;
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+
+      .whiteBall {
+        display: block;
+        width: 28px;
+        height: 28px;
+
+        border-radius: 50%;
+        border: 2px solid #999;
+        background: linear-gradient(white, rgba(0, 0, 0, 0.01));
+        box-sizing: border-box;
+      }
+
+      #agendaPanel {
+        position: relative;
+        height: calc(100dvh - 280px); /* fallback; JS recalculates the exact height */
+        min-height: 180px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 40px 20px 0px 20px;
+        /* esconder scrollbars */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      /* esconder scrollbars */
+      #agendaPanel::-webkit-scrollbar {display: none;}
+
+      .timeline {
+        position: relative;
+        height: 1020px;
+      }
+
+      .timeRow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #ddd;
+      }
+
+      .timeLabel {
+        position: absolute;
+        left: 0;
+        top: -10px;
+        width: 64px;
+        color: #999;
+        font-size: 16px;
+        background-color: white;
+      }
+
+      .timeLine {
+        margin-left: 70px;
+        border-top: 1px solid #ddd;
+      }
+
+      .timelineAppointment {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          overflow: hidden;
+        }
+
+        .timelineAppointment .pill {
+          flex: 1;
+          min-width: 0;
+          height: 100%;
+
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          padding-left: 8px;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .timelineAppointment .status {
+          flex: 0 0 34px;
+        }
