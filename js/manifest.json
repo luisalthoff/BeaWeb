@@ -1,7 +1,7 @@
   {
   "name": "BeaWeb",
   "short_name": "BeaApp",
-  "start_url": "https://luisalthoff.github.io/BeaWeb",
+  "start_url": "https://luisalthoff.github.io/BeaWeb/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000"
