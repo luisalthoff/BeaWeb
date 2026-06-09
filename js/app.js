@@ -686,8 +686,7 @@
           const [hour, minute] = item.time.split(":").map(Number);
           const top =
             (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
-          const columnWidth =
-            (availableWidth - gap * (item.columnCount - 1)) / item.columnCount;
+          const columnWidth = (availableWidth - gap * (item.columnCount - 1)) / item.columnCount;
 
           const appt = document.createElement("div");
           appt.className = "timelineAppointment";
@@ -701,6 +700,15 @@
 					const pill = document.createElement("div");
 					pill.className = `pill ${item.color}`;
 					pill.textContent = item.name;
+          requestAnimationFrame(() => {
+            if (pill.scrollWidth > pill.clientWidth) {
+              pill.style.justifyContent = "flex-start";
+              pill.style.textAlign = "left";
+            } else {
+              pill.style.justifyContent = "center";
+              pill.style.textAlign = "center";
+            }
+          });
 
 					if (clientExists) {
 						pill.addEventListener("click", () => editClient(item.clientId));
