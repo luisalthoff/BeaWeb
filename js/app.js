@@ -95,7 +95,7 @@
         refreshAll();
       }
       function deletePurple(id) {
-        if (!confirm("Remove aula avulsa?")) {
+        if (!confirm("Remover aula avulsa?")) {
           return;
         }
 
@@ -673,9 +673,9 @@
 					});
 
         const laidOutItems = layoutOverlappingItems(items, duration);
-        const agendaLeft = 90;
-        const agendaRightPadding = 20;
-        const gap = 8;
+        const agendaLeft = 64;
+        const agendaRightPadding = 40;
+        const gap = 28;
         const statusWidth = 34;
         const availableWidth = Math.max(
           120,
@@ -687,7 +687,7 @@
           const top = (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
           const totalGap = gap * (item.columnCount - 1);
           const columnWidth = (availableWidth - totalGap) / item.columnCount;
-          const pillWidth = columnWidth - statusWidth - 6;
+          const pillWidth = columnWidth - statusWidth - 10;
 
           const appt = document.createElement("div");
           appt.className = "timelineAppointment";
