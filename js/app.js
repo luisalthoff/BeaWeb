@@ -1175,7 +1175,7 @@
 
       window.addEventListener("resize", renderAgenda);
       window.addEventListener("orientationchange", renderAgenda);
-
+      //??
       if (window.visualViewport) {
         window.visualViewport.addEventListener("resize", renderAgenda);
       }
