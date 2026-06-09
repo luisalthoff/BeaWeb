@@ -1011,6 +1011,10 @@
           console.error(err);
         }
       }
+      function rerenderAgendaAfterViewportChange() {
+        if (document.getElementById("agendaScreen").classList.contains("hidden")) {return;}
+        requestAnimationFrame(() => {renderAgenda();});
+      }
       function resizeAgendaPanel() {
         const agenda = document.getElementById("agendaPanel");
         const agendaScreen = document.getElementById("agendaScreen");
@@ -1145,7 +1149,6 @@
         document.getElementById("clientsScreen").classList.add("hidden");
         document.getElementById("billingScreen").classList.add("hidden");
         renderAgenda();
-        //resizeAgendaPanel();
       };  
       document.getElementById("btnClientsTab").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "hidden";
@@ -1173,13 +1176,10 @@
       document.getElementById("billingMonth").onchange = renderBilling;
       document.getElementById("billingYear").onchange = renderBilling;
 
+      window.addEventListener("resize", rerenderAgendaAfterViewportChange);
+      window.addEventListener("orientationchange", rerenderAgendaAfterViewportChange);
+      if (window.visualViewport) {window.visualViewport.addEventListener("resize", rerenderAgendaAfterViewportChange);}
 
-      window.addEventListener("resize", resizeAgendaPanel);
-      window.addEventListener("orientationchange", resizeAgendaPanel);
-
-      if (window.visualViewport) {
-        window.visualViewport.addEventListener("resize", resizeAgendaPanel);
-      }
 
       loadData();
       populateBillingControls();
