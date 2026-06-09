@@ -1172,14 +1172,11 @@
       document.getElementById("billingMonth").onchange = renderBilling;
       document.getElementById("billingYear").onchange = renderBilling;
 
-
-      window.addEventListener("resize", renderAgenda);
-      window.addEventListener("orientationchange", renderAgenda);
-      //??
-      if (window.visualViewport) {
-        window.visualViewport.addEventListener("resize", renderAgenda);
-      }
-
+      const agendaVisible = () => !document.getElementById("agendaScreen").classList.contains("hidden");
+      window.addEventListener("resize", () => agendaVisible() && renderAgenda());
+      window.addEventListener("orientationchange", () => agendaVisible() && renderAgenda());
+      
+      
       loadData();
       populateBillingControls();
       populateClientList();
