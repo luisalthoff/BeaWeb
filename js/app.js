@@ -673,8 +673,8 @@
 					});
 
         const laidOutItems = layoutOverlappingItems(items, duration);
-        const agendaLeft = 64;
-        const agendaRightPadding = 40;
+        const agendaLeft = 60;
+        const agendaRightPadding = 20;
         const gap = 28;
         const statusWidth = 34;
         const availableWidth = Math.max(
