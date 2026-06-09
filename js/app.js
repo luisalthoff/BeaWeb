@@ -674,7 +674,7 @@
 
         const laidOutItems = layoutOverlappingItems(items, duration);
         const agendaLeft = 60;
-        const agendaRightPadding = 20;
+        const agendaRightPadding = 34;
         const gap = 28;
         const statusWidth = 34;
         const availableWidth = Math.max(
