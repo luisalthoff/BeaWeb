@@ -1011,10 +1011,6 @@
           console.error(err);
         }
       }
-      function rerenderAgendaAfterViewportChange() {
-        if (document.getElementById("agendaScreen").classList.contains("hidden")) {return;}
-        requestAnimationFrame(() => {renderAgenda();});
-      }
       function resizeAgendaPanel() {
         const agenda = document.getElementById("agendaPanel");
         const agendaScreen = document.getElementById("agendaScreen");
@@ -1176,10 +1172,13 @@
       document.getElementById("billingMonth").onchange = renderBilling;
       document.getElementById("billingYear").onchange = renderBilling;
 
-      window.addEventListener("resize", rerenderAgendaAfterViewportChange);
-      window.addEventListener("orientationchange", rerenderAgendaAfterViewportChange);
-      if (window.visualViewport) {window.visualViewport.addEventListener("resize", rerenderAgendaAfterViewportChange);}
 
+      window.addEventListener("resize", renderAgenda);
+      window.addEventListener("orientationchange", renderAgenda);
+
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", renderAgenda);
+      }
 
       loadData();
       populateBillingControls();
