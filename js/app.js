@@ -646,7 +646,6 @@
 									e.time === s.time &&
 									e.status !== "single",
 							);
-
 							items.push({
 								clientId: client.id,
 								name: client.name,
@@ -677,6 +676,7 @@
         const agendaLeft = 90;
         const agendaRightPadding = 20;
         const gap = 8;
+        const statusWidth = 34;
         const availableWidth = Math.max(
           120,
           agenda.clientWidth - agendaLeft - agendaRightPadding,
@@ -684,9 +684,10 @@
 
         laidOutItems.forEach((item) => {
           const [hour, minute] = item.time.split(":").map(Number);
-          const top =
-            (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
-          const columnWidth = (availableWidth - gap * (item.columnCount - 1)) / item.columnCount;
+          const top = (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
+          const totalGap = gap * (item.columnCount - 1);
+          const columnWidth = (availableWidth - totalGap) / item.columnCount;
+          const pillWidth = columnWidth - statusWidth - 6;
 
           const appt = document.createElement("div");
           appt.className = "timelineAppointment";
@@ -700,6 +701,8 @@
 					const pill = document.createElement("div");
 					pill.className = `pill ${item.color}`;
 					pill.textContent = item.name;
+          pill.style.width = `${pillWidth}px`;
+          
           requestAnimationFrame(() => {
             if (pill.scrollWidth > pill.clientWidth) {
               pill.style.justifyContent = "flex-start";
@@ -1141,7 +1144,8 @@
         document.getElementById("agendaScreen").classList.remove("hidden");
         document.getElementById("clientsScreen").classList.add("hidden");
         document.getElementById("billingScreen").classList.add("hidden");
-        resizeAgendaPanel();
+        renderAgenda();
+        //resizeAgendaPanel();
       };  
       document.getElementById("btnClientsTab").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "hidden";
@@ -1182,3 +1186,7 @@
       populateClientList();
       populateTimes();
       refreshUI();
+
+
+
+

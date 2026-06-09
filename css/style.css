@@ -386,7 +386,7 @@
         border-radius: 10px;
         padding: 14px;
         cursor: pointer;
-        min-width: 90px;
+        min-width: 0;
         text-align: center;
       }
 
