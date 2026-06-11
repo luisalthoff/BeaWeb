@@ -3,6 +3,6 @@
   "short_name": "BeaApp",
   "start_url": "https://luisalthoff.github.io/BeaWeb/",
   "display": "standalone",
-  "background_color": "#4a90e2",
-  "theme_color": "#4a90e2"  
+  "background_color": "green",
+  "theme_color": "green"  
   }
