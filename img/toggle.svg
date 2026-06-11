@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24.316896mm"
+   height="19.442341mm"
+   viewBox="0 0 24.316896 19.442341"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
+   sodipodi:docname="toggle.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.89887065"
+     inkscape:cx="45.612792"
+     inkscape:cy="36.156481"
+     inkscape:window-width="1024"
+     inkscape:window-height="1186"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Regular-S" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-92.868748,-138.90625)">
+    <g
+       id="Regular-S"
+       transform="matrix(0.26458333,0,0,0.26458333,90.351074,157.94394)">
+      <path
+         class="monochrome-0 multicolor-0:tintColor hierarchical-0:secondary SFSymbolsPreviewWireframe"
+         d="M 80.7129,-0.0488281 99.9512,-19.8242 c 0.7328,-0.7813 1.2208,-1.9531 1.2208,-2.8809 0,-2.3437 -1.6115,-3.9062 -3.9064,-3.9062 -1.123,0 -1.9531,0.3906 -2.6855,1.123 l -7.5196,7.8125 -5.7617,6.9336 0.3907,-8.9844 v -48.0468 c 0,-2.295 -1.6114,-3.9063 -3.9063,-3.9063 -2.2949,0 -3.9551,1.6113 -3.9551,3.9063 v 48.0468 l 0.4395,8.9844 -5.8106,-6.9336 -7.5195,-7.8125 c -0.6836,-0.7324 -1.5625,-1.123 -2.6855,-1.123 -2.295,0 -3.8575,1.5625 -3.8575,3.9062 0,0.9278 0.4395,2.0996 1.2207,2.8809 l 19.1895,19.7753719 c 1.6601,1.7578081 4.248,1.8066381 5.9082,0 z"
+         id="path33"
+         style="opacity:1;fill:#ffffff;stroke:#ffffff;stroke-width:0.5;stroke-opacity:1" />
+      <path
+         class="monochrome-1 multicolor-1:tintColor hierarchical-1:primary SFSymbolsPreviewWireframe"
+         d="m 30.2246,-70.4102 -19.2383,19.7754 c -0.7324,0.7813 -1.22068,1.9043 -1.22068,2.8809 0,2.3437 1.61138,3.9062 3.90628,3.9062 1.123,0 1.9531,-0.3906 2.6855,-1.123 l 7.5196,-7.8125 5.7617,-6.9824 -0.4395,9.0332 v 48.04685 c 0,2.343753 1.6602,3.95508 3.9551,3.95508 2.2949,0 3.9551,-1.611327 3.9551,-3.95508 V -50.7324 l -0.4395,-9.0332 5.7617,6.9824 7.5196,7.8125 c 0.7324,0.7324 1.5625,1.123 2.6855,1.123 2.2949,0 3.9063,-1.5625 3.9063,-3.9062 0,-0.9766 -0.4883,-2.0996 -1.2207,-2.8809 L 36.1328,-70.4102 c -1.6601,-1.7089 -4.248,-1.7578 -5.9082,0 z"
+         id="path34"
+         style="opacity:1;fill:#cccccc;stroke:#858585;stroke-width:0.5;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="26.358082mm"
+   height="22.598618mm"
+   viewBox="0 0 26.358082 22.598618"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
+   sodipodi:docname="addClient.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.89887065"
+     inkscape:cx="78.431752"
+     inkscape:cy="215.27013"
+     inkscape:window-width="1024"
+     inkscape:window-height="1186"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-67.204169,-84.402079)">
+    <g
+       id="Regular-S"
+       transform="matrix(0.26458333,0,0,0.26458333,70.82306,104.22154)">
+      <path
+         class="monochrome-0 multicolor-0:tintColor hierarchical-0:secondary SFSymbolsPreviewWireframe"
+         d="m 46.2402,4.15039 c 21.7774,0 39.4532,-17.67579 39.4532,-39.40429 0,-21.7285 -17.6758,-39.4043 -39.4532,-39.4043 -21.7285,0 -39.40426,17.6758 -39.40426,39.4043 0,21.7285 17.67576,39.40429 39.40426,39.40429 z"
+         id="path36"
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.5" />
+      <path
+         class="monochrome-1 multicolor-1:tintColor hierarchical-1:primary SFSymbolsPreviewWireframe"
+         d="m 46.2402,-2.44141 c -8.3496,0 -17.1386,-3.36914 -23.0957,-9.61909 4.1016,-6.3965 12.8418,-10.0586 23.0957,-10.0586 10.1075,0 18.9453,3.6132 23.0957,10.0586 -5.957,6.24995 -14.7461,9.61909 -23.0957,9.61909 z m 0,-26.12309 c -7.373,-0.0976 -13.1836,-6.2011 -13.1836,-14.4531 -0.0488,-7.7636 5.8106,-14.1601 13.1836,-14.1601 7.3731,0 13.1836,6.3965 13.1836,14.1601 0,8.252 -5.8105,14.5508 -13.1836,14.4531 z"
+         id="path37"
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.5" />
+      <path
+         class="monochrome-2 multicolor-2:tintColor hierarchical-2:primary SFSymbolsPreviewWireframe"
+         d="m 11.9629,10.2539 c 13.8183,0 25.3906,-11.57226 25.3906,-25.4394 0,-13.9161 -11.4746,-25.3907 -25.3906,-25.3907 -13.96485,0 -25.3906,11.4746 -25.3906,25.3907 0,14.01362 11.42575,25.4394 25.3906,25.4394 z"
+         id="path38"
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.5" />
+      <path
+         class="monochrome-3 multicolor-3:systemGreenColor hierarchical-3:primary SFSymbolsPreviewWireframe"
+         d="m 11.9629,4.54102 c 10.6445,0 19.6777,-8.93555 19.6777,-19.72652 0,-10.7911 -8.8867,-19.6778 -19.6777,-19.6778 -10.79102,0 -19.72657,8.8867 -19.72657,19.6778 0,10.88862 8.93555,19.72652 19.72657,19.72652 z"
+         id="path39"
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.5" />
+      <path
+         class="monochrome-4 multicolor-4:white hierarchical-4:primary SFSymbolsPreviewWireframe"
+         d="m 11.9629,-2.92969 c -1.5625,0 -2.53907,-1.02539 -2.53907,-2.53906 V -12.6465 H 2.24609 c -1.513668,0 -2.539059,-0.9765 -2.539059,-2.539 0,-1.5137 1.025391,-2.4903 2.539059,-2.4903 h 7.17774 v -7.1777 c 0,-1.5137 0.97657,-2.5391 2.53907,-2.5391 1.5137,0 2.5391,1.0254 2.5391,2.5391 v 7.1777 h 7.1777 c 1.5137,0 2.4902,0.9766 2.4902,2.4903 0,1.5625 -0.9765,2.539 -2.4902,2.539 H 14.502 v 7.17775 c 0,1.51367 -1.0254,2.53906 -2.5391,2.53906 z"
+         id="path40"
+         style="opacity:1;fill:none;stroke:#000000;stroke-width:0.5" />
+    </g>
+  </g>
+</svg>

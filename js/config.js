@@ -14,4 +14,8 @@
         noshow: "🔴",
         single: "🟣",
     };
-    
+
+    const safeTopValue = getComputedStyle(document.documentElement)
+        .getPropertyValue('--safe-top');
+
+    alert("Top safe area inset is: ${safeTopValue}");

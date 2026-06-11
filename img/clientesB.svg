@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="17.224264mm"
+   height="18.425743mm"
+   viewBox="0 0 17.224264 18.425743"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
+   sodipodi:docname="clientesBlack.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.89887065"
+     inkscape:cx="25.587664"
+     inkscape:cy="218.60765"
+     inkscape:window-width="1024"
+     inkscape:window-height="1186"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-98.425004,-90.752085)">
+    <g
+       id="Regular-S"
+       transform="matrix(0.26458333,0,0,0.26458333,95.90733,109.29255)"
+       style="fill:#1a1a1a">
+      <path
+         class="monochrome-0 multicolor-0:tintColor hierarchical-0:primary SFSymbolsPreviewWireframe"
+         d="m 16.5527,-0.683594 h 50.9766 c 4.2969,0 6.8359,-1.953126 6.8359,-5.224606 0,-9.9121 -12.4023,-23.584 -32.3242,-23.584 -19.873,0 -32.27538,13.6719 -32.27538,23.584 0,3.27148 2.53908,5.224606 6.78708,5.224606 z M 42.041,-36.3281 c 8.2031,0 15.4297,-7.3731 15.4297,-16.9922 0,-9.5703 -7.2266,-16.5039 -15.4297,-16.5039 -8.1543,0 -15.3808,7.1289 -15.3808,16.6015 0,9.5215 7.2265,16.8946 15.3808,16.8946 z"
+         id="path32"
+         style="opacity:1;fill:#1a1a1a;stroke:#000000;stroke-width:0.5" />
+    </g>
+  </g>
+</svg>

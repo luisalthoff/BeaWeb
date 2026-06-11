@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="17.224262mm"
+   height="18.425741mm"
+   viewBox="0 0 17.224262 18.425741"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
+   sodipodi:docname="clientes40.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.89887065"
+     inkscape:cx="-126.82581"
+     inkscape:cy="176.33238"
+     inkscape:window-width="1024"
+     inkscape:window-height="1186"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch1"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-129.91041,-96.572915)">
+    <path
+       class="monochrome-0 multicolor-0:tintColor hierarchical-0:primary SFSymbolsPreviewWireframe"
+       d="m 131.77231,114.93251 h 13.48756 c 1.13689,0 1.80866,-0.51676 1.80866,-1.38234 0,-2.62258 -3.28144,-6.23993 -8.55244,-6.23993 -5.25807,0 -8.53953,3.61735 -8.53953,6.23993 0,0.86558 0.6718,1.38234 1.79575,1.38234 z m 6.74378,-9.43094 c 2.1704,0 4.08244,-1.9508 4.08244,-4.49585 0,-2.532144 -1.91204,-4.366659 -4.08244,-4.366659 -2.15749,0 -4.06951,1.886188 -4.06951,4.392479 0,2.51923 1.91202,4.47003 4.06951,4.47003 z"
+       id="path32"
+       style="fill:#999999;stroke:#ffffff;stroke-width:0;fill-opacity:1;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

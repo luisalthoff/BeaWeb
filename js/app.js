@@ -11,6 +11,18 @@
       let paymentClientId = null;
       let editingClientId = null;
 
+      // Select all buttons inside the floating menu
+      const buttons = document.querySelectorAll('.menu-btn');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          // 1. Remove the active class from whichever button currently has it
+          document.querySelector('.menu-btn.active')?.classList.remove('active');
+          
+          // 2. Add the active class to the clicked button
+          button.classList.add('active');
+        });
+      });
 
       // =============== FUNCTIONS ===================
       function addScheduleItem() {
@@ -255,6 +267,12 @@
       function getScheduleFromModal() {
         return [...tempSchedule];
       }
+      function getTextWidth(text, font = "16px Helvetica") {
+        const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+        const context = canvas.getContext("2d");
+        context.font = font;
+        return context.measureText(text).width;
+      }
       function giraFlecha() {
         const el = document.getElementById('btnToggle');
           el.style.transform = (el.style.transform === 'scaleY(-1)') ? 'scaleY(1)' : 'scaleY(-1)';
@@ -296,7 +314,7 @@
           if (savedClients || savedEvents) saveData();
         } catch (err) {
           console.error(err);
-          alert("Erro carregando os dados salvos.");
+          //alert("Erro carregando os dados salvos.");
           clients = [];
           events = [];
           syncQueue = [];
@@ -646,6 +664,7 @@
 									e.time === s.time &&
 									e.status !== "single",
 							);
+
 							items.push({
 								clientId: client.id,
 								name: client.name,
@@ -673,10 +692,9 @@
 					});
 
         const laidOutItems = layoutOverlappingItems(items, duration);
-        const agendaLeft = 60;
-        const agendaRightPadding = 34;
-        const gap = 28;
-        const statusWidth = 34;
+        const agendaLeft = 70;
+        const agendaRightPadding = 20;
+        const gap = 8;
         const availableWidth = Math.max(
           120,
           agenda.clientWidth - agendaLeft - agendaRightPadding,
@@ -684,10 +702,10 @@
 
         laidOutItems.forEach((item) => {
           const [hour, minute] = item.time.split(":").map(Number);
-          const top = (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
-          const totalGap = gap * (item.columnCount - 1);
-          const columnWidth = (availableWidth - totalGap) / item.columnCount;
-          const pillWidth = columnWidth - statusWidth - 10;
+          const top =
+            (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
+          const columnWidth =
+            (availableWidth - gap * (item.columnCount - 1)) / item.columnCount;
 
           const appt = document.createElement("div");
           appt.className = "timelineAppointment";
@@ -701,17 +719,6 @@
 					const pill = document.createElement("div");
 					pill.className = `pill ${item.color}`;
 					pill.textContent = item.name;
-          pill.style.width = `${pillWidth}px`;
-          
-          requestAnimationFrame(() => {
-            if (pill.scrollWidth > pill.clientWidth) {
-              pill.style.justifyContent = "flex-start";
-              pill.style.textAlign = "left";
-            } else {
-              pill.style.justifyContent = "center";
-              pill.style.textAlign = "center";
-            }
-          });
 
 					if (clientExists) {
 						pill.addEventListener("click", () => editClient(item.clientId));
@@ -1144,7 +1151,7 @@
         document.getElementById("agendaScreen").classList.remove("hidden");
         document.getElementById("clientsScreen").classList.add("hidden");
         document.getElementById("billingScreen").classList.add("hidden");
-        renderAgenda();
+        resizeAgendaPanel();
       };  
       document.getElementById("btnClientsTab").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "hidden";
@@ -1172,16 +1179,23 @@
       document.getElementById("billingMonth").onchange = renderBilling;
       document.getElementById("billingYear").onchange = renderBilling;
 
-      const agendaVisible = () => !document.getElementById("agendaScreen").classList.contains("hidden");
-      window.addEventListener("resize", () => agendaVisible() && renderAgenda());
-      window.addEventListener("orientationchange", () => agendaVisible() && renderAgenda());
-      
-      
+
+      window.addEventListener("resize", resizeAgendaPanel);
+      window.addEventListener("orientationchange", resizeAgendaPanel);
+
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", resizeAgendaPanel);
+      }
+
       loadData();
       populateBillingControls();
       populateClientList();
       populateTimes();
       refreshUI();
+
+
+
+
 
 
 

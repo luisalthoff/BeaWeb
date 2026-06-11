@@ -3,29 +3,32 @@
   <head>
     <!-- BeaWeb-6-6-26.html -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
     <title>Bea Web</title>
-    
-    <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/config.js" defer></script>
     <script src="js/app.js" defer></script>
-
-
   </head>
 
   <body>
 
-      <!--========== TELA AGENDA ===========-->
+    <!--========== TELA AGENDA ===========-->
 
-    <div class="vidro">
-      <div id="agendaScreen">
-        <div class="cabeca2">
-          <button id="btnWalkIn" class="botao">🪂</button>
-          <button onclick="clearDatabase()"; style="transform: scale(0.6, 0.8);">🗑️3</button>
-          <div id="title"></div>
-          <button id="btnToggle" class="botao" style="color: var(--corBtn)">⇪</button>
+    <div id="agendaScreen">
+      <div class="floating-menu-top">
+        <button id="btnWalkIn" class="menu-btn-top">
+          <img src="img/avulso.svg" alt="Aula Avulsa">
+        </button>
+        <button class="menu-btn-top" onclick="clearDatabase();">
+          <img src="img/trash.svg">
+        </button>
+        <div id="title"></div>
+        <button id="btnToggle" class="menu-btn-top">
+          <img src="img/toggle.svg">
+        </button>
+        
         </div>
         <div id="calendarPanel">
           <div class="cabeca">
@@ -46,8 +49,25 @@
           <div id="calendarGrid"></div>
         </div>
         <div id="agendaPanel"></div>
+        </div>
+    <!----------- MENU BOTTOM --------------->
 
-				<!----------- AULA AVULSA (TELA MODAL) --------------->
+        <nav class="floating-menu">
+          <button id="btnAgendaTab" class="menu-btn active">
+            <img src="img/calendario.svg" alt="" />
+          </button>
+          <button id="btnClientsTab" class="menu-btn">
+            <img src="img/clientes.svg" alt="" />
+          </button>
+          <button id="btnBillingTab" class="menu-btn">
+            <img src="img/fechamento.svg" alt="" />
+          </button>
+          <button id="btnAjustesTab" class="menu-btn">
+            <img src="img/ajustes.svg" alt="" />
+          </button>
+        </nav>
+
+        <!----------- AULA AVULSA (TELA MODAL) --------------->
         <div id="sessionModal" class="modal hidden">
           <div class="sheet">
             <h2>Aula Avulsa</h2>
@@ -67,21 +87,12 @@
               <button id="btnCancelSession">Cancel</button>
 
               <button id="btnSaveSession">Save</button>
-            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!----------- MENU BOTTOM --------------->
-		<div class="vidroMenuBot">
-			<div id="menuBottom" class="cabeca">
-				<button id="btnAgendaTab">📅</button>
-				<button id="btnClientsTab">🏋️‍♂️</button>
-				<button id="btnBillingTab">📓</button>
-        <button id="appSettings">⚙️</button>
-			</div>
-		</div>
+
 
     <!--========== TELA ALUNOS ===========-->
     <div id="clientsScreen" class="hidden">
@@ -99,13 +110,15 @@
         <button>&nbsp;</button>
       </header>
 
-    <!--========== TELA FECHAMENTO ===========-->
+      <!--========== TELA FECHAMENTO ===========-->
       <div id="billingControls">
         <select id="billingMonth"></select>
         <select id="billingYear"></select>
       </div>
 
-      <div id="billingList"></div>
+      <div id="billingList">
+
+      </div>
     </div>
 
     <!--========== MODAL ALUNOS ===========-->
@@ -134,7 +147,7 @@
         </div>
 
         <div id="scheduleList"></div>
-        
+
         <div class="buttons">
           <button id="btnCancelClient">Cancel</button>
           <button id="btnSaveClient">Save</button>
@@ -159,8 +172,7 @@
     <div id="settingsScreen" class="hidden">
       <h2>Settings</h2>
     </div>
-
-    <!--========== JAVASCRIPT ===========-->
-
   </body>
 </html>
+
+
