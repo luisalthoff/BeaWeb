@@ -14,88 +14,93 @@
 
   <body>
 
-    <!--========== TELA AGENDA ===========-->
+    <!--======= TAB 1 (Calendario e Agenda) ===========-->
 
-    <div id="agendaScreen">
+    <div id="tab1">
       <div class="floating-menu-top">
         <button id="btnWalkIn" class="menu-btn-top">
           <img src="img/avulso.svg" alt="Aula Avulsa">
         </button>
+        <span>v1</span>
         <button class="menu-btn-top" onclick="clearDatabase();">
           <img src="img/trash.svg">
         </button>
-        <div id="title"></div>
+        <div id="title">TITULO</div>
         <button id="btnToggle" class="menu-btn-top">
           <img src="img/toggle.svg">
         </button>
+      </div>
+ 
+      <!-- ======== CALENDARIO ========= -->
+      <div id="calendarPanel">
         
+        <!--    <  MES/ANO  >      --> 
+        <div class="cabeca">
+          <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
+          <div id="monthLabel" style="font-size: var(--fntTit); color: var(--corBtn)"></div>
+          <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
         </div>
-        <div id="calendarPanel">
-          <div class="cabeca">
-            <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
-            <div id="monthLabel">07/Jun</div>
-            <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
-          </div>
 
-          <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
-            <div>D</div>
-            <div>S</div>
-            <div>T</div>
-            <div>Q</div>
-            <div>Q</div>
-            <div>S</div>
-            <div>S</div>
-          </div>
-          <div id="calendarGrid"></div>
+        <!--    Dom Seg Ter Qua Qui Sex Sab      -->  
+        <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
+          <div>D</div>
+          <div>S</div>
+          <div>T</div>
+          <div>Q</div>
+          <div>Q</div>
+          <div>S</div>
+          <div>S</div>
         </div>
-        <div id="agendaPanel"></div>
-        </div>
+
+        <!--    Grid com dias      -->  
+        <div id="calendarGrid"></div>
+      </div>
+
+      <!-- ======== AGENDA ========= -->
+      <div id="agendaPanel"></div>
+    </div>
+    
     <!----------- MENU BOTTOM --------------->
+    <nav class="floating-menu">
+      <button id="btnTab1" class="menu-btn active">
+        <img src="img/calendario.svg" alt="" />
+      </button>
+      <button id="btnTab2" class="menu-btn">
+        <img src="img/clientes.svg" alt="" />
+      </button>
+      <button id="btnTab3" class="menu-btn">
+        <img src="img/fechamento.svg" alt="" />
+      </button>
+      <button id="btnTab4" class="menu-btn">
+        <img src="img/ajustes.svg" alt="" />
+      </button>
+    </nav>
 
-        <nav class="floating-menu">
-          <button id="btnAgendaTab" class="menu-btn active">
-            <img src="img/calendario.svg" alt="" />
-          </button>
-          <button id="btnClientsTab" class="menu-btn">
-            <img src="img/clientes.svg" alt="" />
-          </button>
-          <button id="btnBillingTab" class="menu-btn">
-            <img src="img/fechamento.svg" alt="" />
-          </button>
-          <button id="btnAjustesTab" class="menu-btn">
-            <img src="img/ajustes.svg" alt="" />
-          </button>
-        </nav>
+    <!----------- AULA AVULSA (MODAL) --------------->
+    <div id="sessionModal" class="modal hidden">
+      <div class="sheet">
+        <h2>Aula Avulsa</h2>
+        <input
+          id="sessionName"
+          list="clientList"
+          placeholder="Select or type name"
+        />
 
-        <!----------- AULA AVULSA (TELA MODAL) --------------->
-        <div id="sessionModal" class="modal hidden">
-          <div class="sheet">
-            <h2>Aula Avulsa</h2>
-            <input
-              id="sessionName"
-              list="clientList"
-              placeholder="Select or type name"
-            />
+        <datalist id="clientList"></datalist>
+        <select id="sessionTime"></select>
+        <label>Cost</label>
 
-            <datalist id="clientList"></datalist>
-            <select id="sessionTime"></select>
-            <label>Cost</label>
+        <input id="sessionCost" type="number" step="0.01" value="0" />
 
-            <input id="sessionCost" type="number" step="0.01" value="0" />
-
-            <div class="buttons">
-              <button id="btnCancelSession">Cancel</button>
-
-              <button id="btnSaveSession">Save</button>
-          </div>
+        <div class="buttons">
+          <button id="btnCancelSession">Cancel</button>
+          <button id="btnSaveSession">Save</button>
         </div>
       </div>
     </div>
 
-
-
-    <!--========== TELA ALUNOS ===========-->
-    <div id="clientsScreen" class="hidden">
+    <!--======= TAB 2 (Clients) ===========-->
+    <div id="tab2" class="hidden">
       <header class="hdrClient">
         <div>Clientes</div>
         <button id="btnAddClient">ᐩ🧘‍♀️</button>
@@ -103,24 +108,25 @@
       <div id="clientsList"></div>
     </div>
 
-    <div id="billingScreen" class="hidden">
+    <!--====== TAB 3 (Fechamento) =========-->
+    <div id="tab3" class="hidden">
       <header>
         <button>&nbsp;</button>
         <div>Fechamento</div>
         <button>&nbsp;</button>
       </header>
-
-      <!--========== TELA FECHAMENTO ===========-->
       <div id="billingControls">
         <select id="billingMonth"></select>
         <select id="billingYear"></select>
       </div>
-
-      <div id="billingList">
-
-      </div>
+      <div id="billingList"></div>
     </div>
 
+    <!--====== TAB 4 (App Settings) =========-->
+    <div id="tab4" class="hidden">
+      <div id="ajustes"></div>
+    </div>
+    
     <!--========== MODAL ALUNOS ===========-->
     <div id="clientModal" class="modal hidden">
       <div class="modalContent">
@@ -168,10 +174,6 @@
       </div>
     </div>
 
-    <!--========== APP SETTINGS ===========-->
-    <div id="settingsScreen" class="hidden">
-      <h2>Settings</h2>
-    </div>
   </body>
 </html>
 

@@ -610,14 +610,14 @@
       function refreshUI() {
         populateClientList();
         renderCalendar();
-        renderAgenda();
+        mostraTab1();
         resizeAgendaPanel();
-        renderClients();
-        if (!document.getElementById("billingScreen").classList.contains("hidden")) {
-          renderBilling();
+        mostraTab2();
+        if (!document.getElementById("tab3").classList.contains("hidden")) {
+          mostraTab3();
         }
       }
-			function renderAgenda() {
+			function mostraTab1() {
 				if (!selectedDate) {
 					clearAgenda();
 					return;
@@ -743,7 +743,35 @@
 				updateHeader();
         resizeAgendaPanel();
 			}
-      function renderBilling() {
+      function mostraTab2() {
+        const list = document.getElementById("clientsList");
+
+        list.innerHTML = "";
+
+        clients.forEach((client) => {
+          const card = document.createElement("div");
+          card.className = "clientCard";
+          card.addEventListener("click", () => editClient(client.id));
+
+          const scheduleText = (client.schedule || [])
+            .map(s => weekdayName(s.weekday) + " " + s.time)
+            .join("<br>");
+
+          card.innerHTML = `
+            <div class="clientColor ${client.color}"></div>
+            <div class="clientName">${client.name}</div>
+            <div class="clientSchedule">${scheduleText}</div>
+            <div class="clientPayment">${paymentBadge(client)}</div>`;
+
+          card.querySelector(".clientPayment").addEventListener("click", (event) => {
+            event.stopPropagation();
+            openPaymentModal(client.id);
+          });
+
+          list.appendChild(card);
+        });
+      }
+      function mostraTab3() {
         const list = document.getElementById("billingList");
         const month = document.getElementById("billingMonth").value;
         const year = document.getElementById("billingYear").value;
@@ -818,6 +846,10 @@
             list.appendChild(card);
           });
       }
+      function mostraTab4() {
+        const ajustes = document.getElementById("ajustes");
+        ajustes.innerHTML = "Ajustes";
+      }
       function renderCalendar() {
         const grid = document.getElementById("calendarGrid");
 
@@ -867,40 +899,12 @@
             selectedDate = date;
 
             renderCalendar();
-            renderAgenda();
+            mostraTab1();
             updateHeader();
           };
 
           grid.appendChild(div);
         }
-      }
-      function renderClients() {
-        const list = document.getElementById("clientsList");
-
-        list.innerHTML = "";
-
-        clients.forEach((client) => {
-          const card = document.createElement("div");
-          card.className = "clientCard";
-          card.addEventListener("click", () => editClient(client.id));
-
-          const scheduleText = (client.schedule || [])
-            .map(s => weekdayName(s.weekday) + " " + s.time)
-            .join("<br>");
-
-          card.innerHTML = `
-            <div class="clientColor ${client.color}"></div>
-            <div class="clientName">${client.name}</div>
-            <div class="clientSchedule">${scheduleText}</div>
-            <div class="clientPayment">${paymentBadge(client)}</div>`;
-
-          card.querySelector(".clientPayment").addEventListener("click", (event) => {
-            event.stopPropagation();
-            openPaymentModal(client.id);
-          });
-
-          list.appendChild(card);
-        });
       }
       function renderPaymentMonths() {
         const client = clients.find(c => c.id === paymentClientId);
@@ -1020,9 +1024,9 @@
       }
       function resizeAgendaPanel() {
         const agenda = document.getElementById("agendaPanel");
-        const agendaScreen = document.getElementById("agendaScreen");
+        const tab1 = document.getElementById("tab1");
 
-        if (!agenda || !agendaScreen || agendaScreen.classList.contains("hidden")) {
+        if (!agenda || !tab1 || tab1.classList.contains("hidden")) {
           return;
         }
 
@@ -1112,7 +1116,7 @@
         renderCalendar();
 
         if (selectedDate) {
-          renderAgenda();
+          mostraTab1();
         } else {
           clearAgenda();
         }
@@ -1134,7 +1138,7 @@
         renderCalendar();
 
         if (selectedDate) {
-          renderAgenda();
+          mostraTab1();
         } else {
           clearAgenda();
         }
@@ -1145,30 +1149,44 @@
       document.getElementById("btnWalkIn").addEventListener("click", () => {
         openSessionModal();
       });
-      document.getElementById("btnAgendaTab").onclick = () => {
+      document.getElementById("btnTab1").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "visible";
         document.getElementById("btnToggle").style.visibility = "visible";
-        document.getElementById("agendaScreen").classList.remove("hidden");
-        document.getElementById("clientsScreen").classList.add("hidden");
-        document.getElementById("billingScreen").classList.add("hidden");
-        resizeAgendaPanel();
+        document.getElementById("tab1").classList.remove("hidden");
+        document.getElementById("tab2").classList.add("hidden");
+        document.getElementById("tab3").classList.add("hidden");
+        document.getElementById("tab4").classList.add("hidden");
+        mostraTab1();
       };  
-      document.getElementById("btnClientsTab").onclick = () => {
+      document.getElementById("btnTab2").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "hidden";
         document.getElementById("btnToggle").style.visibility = "hidden";
-        document.getElementById("agendaScreen").classList.add("hidden");
-        document.getElementById("clientsScreen").classList.remove("hidden");
-        document.getElementById("billingScreen").classList.add("hidden");
-        renderClients();
+        document.getElementById("tab1").classList.add("hidden");
+        document.getElementById("tab2").classList.remove("hidden");
+        document.getElementById("tab3").classList.add("hidden");
+        document.getElementById("tab4").classList.add("hidden");
+        mostraTab2();
       };
-      document.getElementById("btnBillingTab").onclick = () => {
+      document.getElementById("btnTab3").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "hidden";
         document.getElementById("btnToggle").style.visibility = "hidden";
-        document.getElementById("agendaScreen").classList.add("hidden");
-        document.getElementById("clientsScreen").classList.add("hidden");
-        document.getElementById("billingScreen").classList.remove("hidden");
-        renderBilling();
+        document.getElementById("tab1").classList.add("hidden");
+        document.getElementById("tab2").classList.add("hidden");
+        document.getElementById("tab3").classList.remove("hidden");
+        document.getElementById("tab4").classList.add("hidden");
+        mostraTab3();
       };
+      document.getElementById("btnTab4").onclick = () => {
+        document.getElementById("btnWalkIn").style.visibility = "hidden";
+        document.getElementById("btnToggle").style.visibility = "hidden";
+        document.getElementById("tab1").classList.add("hidden");
+        document.getElementById("tab2").classList.add("hidden");
+        document.getElementById("tab3").classList.add("hidden");
+        document.getElementById("tab4").classList.remove("hidden");
+        renderTab4();
+      };
+
+
       document.getElementById("btnAddClient").onclick = openClientModal;
       document.getElementById("btnCancelClient").onclick = closeClientModal;
       document.getElementById("btnSaveClient").onclick = saveClient;
@@ -1176,8 +1194,8 @@
       document.getElementById("paymentYear").addEventListener("change", renderPaymentMonths);
       document.getElementById("btnCancelPayment").onclick = () => {document.getElementById("paymentModal").classList.add("hidden");};
       document.getElementById("btnSavePayment").onclick = () => {document.getElementById("paymentModal").classList.add("hidden"); refreshAll();};
-      document.getElementById("billingMonth").onchange = renderBilling;
-      document.getElementById("billingYear").onchange = renderBilling;
+      document.getElementById("billingMonth").onchange = mostraTab3;
+      document.getElementById("billingYear").onchange = mostraTab3;
 
 
       window.addEventListener("resize", resizeAgendaPanel);
