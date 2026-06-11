@@ -42,6 +42,15 @@ body
   padding-top: calc(var(--safe-top) + var(--top-menu-height));
 }
 
+.modal-box {
+  position: flex;     /* Ignores body padding and fits to screen viewport */
+  top: 50%;            /* Aligns top edge to screen center */
+  left: 50%;           /* Aligns left edge to screen center */
+  transform: translate(-50%, -50%); /* Offsets own height/width to center perfectly */
+  z-index: 9999;       /* Ensures it floats on top of the menu and text */
+  margin: 0;           /* Guards against browser defaults */
+}
+
 .floating-menu-top
 {
   position: fixed;
@@ -131,7 +140,6 @@ body
   margin-inline: auto;
   padding-inline: 30px;
 }
-
 .cabeca2 {
   display: flex;
   justify-content: space-between;

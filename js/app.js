@@ -315,6 +315,239 @@
           events = [];
           syncQueue = [];
         }
+      }
+      function mostraTab1() {
+				if (!selectedDate) {
+					clearAgenda();
+					return;
+				}
+
+				const agenda = document.getElementById("agendaPanel");
+				agenda.innerHTML = "";
+
+				const selected = isoDate(selectedDate);
+				const weekday = selectedDate.getDay();
+
+				const startHour = 6;
+				const endHour = 23;
+				const hourHeight = 60;
+                const duration = Number(APP.sessionDuration) || 60;
+        const appointmentHeight = (duration / 60) * hourHeight;
+        const items = [];
+
+        const timeline = document.createElement("div");
+        timeline.className = "timeline";
+        timeline.style.height = `${(endHour - startHour + 1) * hourHeight}px`;
+
+				for (let h = startHour; h <= endHour; h++) {
+					const row = document.createElement("div");
+					row.className = "timeRow";
+					row.style.top = `${(h - startHour) * hourHeight}px`;
+
+					row.innerHTML = `
+						<div class="timeLabel">${String(h).padStart(2, "0")}:00</div>
+						<div class="timeLine"></div>
+					`;
+
+					timeline.appendChild(row);
+				}
+
+				clients.forEach((client) => {
+					(client.schedule || [])
+						.filter((s) => s.weekday === weekday)
+						.forEach((s) => {
+							const override = events.find(
+								(e) =>
+									e.date === selected &&
+									e.clientId === client.id &&
+									e.time === s.time &&
+									e.status !== "single",
+							);
+
+							items.push({
+								clientId: client.id,
+								name: client.name,
+								color: client.color,
+								time: s.time,
+								status: override ? override.status : "reserved",
+							});
+						});
+				});
+
+				events
+					.filter((e) => e.date === selected && e.status === "single")
+          .forEach((e) => {
+            const client = clients.find((c) => c.id === e.clientId);
+
+						items.push({
+							purple: true,
+							eventId: e.id,
+							clientId: e.clientId,
+							name: client ? client.name : e.name,
+							color: client ? client.color : "purple",
+							time: e.time,
+							status: "single",
+						});
+					});
+
+        const laidOutItems = layoutOverlappingItems(items, duration);
+        const agendaLeft = 70;
+        const agendaRightPadding = 20;
+        const gap = 8;
+        const availableWidth = Math.max(
+          120,
+          agenda.clientWidth - agendaLeft - agendaRightPadding,
+        );
+
+        laidOutItems.forEach((item) => {
+          const [hour, minute] = item.time.split(":").map(Number);
+          const top =
+            (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
+          const columnWidth =
+            (availableWidth - gap * (item.columnCount - 1)) / item.columnCount;
+
+          const appt = document.createElement("div");
+          appt.className = "timelineAppointment";
+          appt.style.top = `${top}px`;
+          appt.style.left = `${agendaLeft + item.columnIndex * (columnWidth + gap)}px`;
+          appt.style.width = `${columnWidth}px`;
+          appt.style.height = `${appointmentHeight}px`;
+
+          const clientExists = clients.some((c) => c.id === item.clientId);
+
+					const pill = document.createElement("div");
+					pill.className = `pill ${item.color}`;
+					pill.textContent = item.name;
+
+					if (clientExists) {
+						pill.addEventListener("click", () => editClient(item.clientId));
+					}
+
+					const status = document.createElement("div");
+					status.className = "status";
+					status.innerHTML = item.purple ? "🟣" : STATUS_ICON[item.status];
+
+					if (item.purple) {
+						status.addEventListener("click", () => deletePurple(item.eventId));
+					} else {
+						status.addEventListener("click", () => cycleStatus(item.clientId, item.time));
+					}
+
+					appt.appendChild(pill);
+					appt.appendChild(status);
+					timeline.appendChild(appt);
+				});
+
+				agenda.appendChild(timeline);
+				updateHeader(1);
+        resizeAgendaPanel();
+			}
+      function mostraTab2() {
+        const list = document.getElementById("clientsList");
+
+        list.innerHTML = "";
+
+        clients.forEach((client) => {
+          const card = document.createElement("div");
+          card.className = "clientCard";
+          card.addEventListener("click", () => editClient(client.id));
+
+          const scheduleText = (client.schedule || [])
+            .map(s => weekdayName(s.weekday) + " " + s.time)
+            .join("<br>");
+
+          card.innerHTML = `
+            <div class="clientColor ${client.color}"></div>
+            <div class="clientName">${client.name}</div>
+            <div class="clientSchedule">${scheduleText}</div>
+            <div class="clientPayment">${paymentBadge(client)}</div>`;
+
+          card.querySelector(".clientPayment").addEventListener("click", (event) => {
+            event.stopPropagation();
+            openPaymentModal(client.id);
+          });
+
+          list.appendChild(card);
+        });
+      }
+      function mostraTab3() {
+        const list = document.getElementById("billingList");
+        const month = document.getElementById("billingMonth").value;
+        const year = document.getElementById("billingYear").value;
+        const prefix = `${year}-${month}`;
+
+        list.innerHTML = "";
+
+        const grouped = {};
+
+        events
+          .filter(e => e.date && e.date.startsWith(prefix))
+          .forEach(e => {
+            const client =
+              clients.find(c => c.id === e.clientId);
+
+            const name =
+              client ? client.name : e.name || "Walk-in";
+
+            if (!grouped[name]) {
+              grouped[name] = {
+                total: 0,
+                lines: []
+              };
+            }
+
+            const amount = amountForEvent(e);
+
+            grouped[name].total += amount;
+
+            grouped[name].lines.push({
+              date: e.date,
+              status: e.status,
+              amount
+            });
+          });
+
+        Object.keys(grouped)
+          .sort((a, b) => a.localeCompare(b, "pt-BR"))
+          .forEach(name => {
+            const data = grouped[name];
+
+            const card = document.createElement("div");
+            card.className = "billingCard";
+
+            card.innerHTML = `
+              <div class="billingHeader">
+                <span>${formatAmount(data.total)}</span>
+                <span>${name}</span>
+                <button class="shareBillingBtn" type="button">📤</button>
+              </div>
+            `;
+
+            card.querySelector(".shareBillingBtn").addEventListener("click", (event) => {
+              event.stopPropagation();
+              printInvoice(name);
+            });
+
+            data.lines
+              .sort((a, b) => a.date.localeCompare(b.date))
+              .forEach(line => {
+                const div = document.createElement("div");
+                div.className = "billingLine";
+
+                div.innerHTML = `
+                  <span>${STATUS_ICON[line.status] || ""} ${formatShortDate(line.date)}</span>
+                  <span>${formatAmount(line.amount)}</span>
+                `;
+
+                card.appendChild(div);
+              });
+
+            list.appendChild(card);
+          });
+      }
+      function mostraTab4() {
+        const ajustes = document.getElementById("ajustes");
+        ajustes.innerHTML = "Ajustes";
       }      
       function openClientModal() {
         editingClientId = null;
@@ -613,239 +846,6 @@
           mostraTab3();
         }
       }
-			function mostraTab1() {
-				if (!selectedDate) {
-					clearAgenda();
-					return;
-				}
-
-				const agenda = document.getElementById("agendaPanel");
-				agenda.innerHTML = "";
-
-				const selected = isoDate(selectedDate);
-				const weekday = selectedDate.getDay();
-
-				const startHour = 6;
-				const endHour = 23;
-				const hourHeight = 60;
-                const duration = Number(APP.sessionDuration) || 60;
-        const appointmentHeight = (duration / 60) * hourHeight;
-        const items = [];
-
-        const timeline = document.createElement("div");
-        timeline.className = "timeline";
-        timeline.style.height = `${(endHour - startHour + 1) * hourHeight}px`;
-
-				for (let h = startHour; h <= endHour; h++) {
-					const row = document.createElement("div");
-					row.className = "timeRow";
-					row.style.top = `${(h - startHour) * hourHeight}px`;
-
-					row.innerHTML = `
-						<div class="timeLabel">${String(h).padStart(2, "0")}:00</div>
-						<div class="timeLine"></div>
-					`;
-
-					timeline.appendChild(row);
-				}
-
-				clients.forEach((client) => {
-					(client.schedule || [])
-						.filter((s) => s.weekday === weekday)
-						.forEach((s) => {
-							const override = events.find(
-								(e) =>
-									e.date === selected &&
-									e.clientId === client.id &&
-									e.time === s.time &&
-									e.status !== "single",
-							);
-
-							items.push({
-								clientId: client.id,
-								name: client.name,
-								color: client.color,
-								time: s.time,
-								status: override ? override.status : "reserved",
-							});
-						});
-				});
-
-				events
-					.filter((e) => e.date === selected && e.status === "single")
-          .forEach((e) => {
-            const client = clients.find((c) => c.id === e.clientId);
-
-						items.push({
-							purple: true,
-							eventId: e.id,
-							clientId: e.clientId,
-							name: client ? client.name : e.name,
-							color: client ? client.color : "purple",
-							time: e.time,
-							status: "single",
-						});
-					});
-
-        const laidOutItems = layoutOverlappingItems(items, duration);
-        const agendaLeft = 70;
-        const agendaRightPadding = 20;
-        const gap = 8;
-        const availableWidth = Math.max(
-          120,
-          agenda.clientWidth - agendaLeft - agendaRightPadding,
-        );
-
-        laidOutItems.forEach((item) => {
-          const [hour, minute] = item.time.split(":").map(Number);
-          const top =
-            (hour - startHour) * hourHeight + (minute / 60) * hourHeight;
-          const columnWidth =
-            (availableWidth - gap * (item.columnCount - 1)) / item.columnCount;
-
-          const appt = document.createElement("div");
-          appt.className = "timelineAppointment";
-          appt.style.top = `${top}px`;
-          appt.style.left = `${agendaLeft + item.columnIndex * (columnWidth + gap)}px`;
-          appt.style.width = `${columnWidth}px`;
-          appt.style.height = `${appointmentHeight}px`;
-
-          const clientExists = clients.some((c) => c.id === item.clientId);
-
-					const pill = document.createElement("div");
-					pill.className = `pill ${item.color}`;
-					pill.textContent = item.name;
-
-					if (clientExists) {
-						pill.addEventListener("click", () => editClient(item.clientId));
-					}
-
-					const status = document.createElement("div");
-					status.className = "status";
-					status.innerHTML = item.purple ? "🟣" : STATUS_ICON[item.status];
-
-					if (item.purple) {
-						status.addEventListener("click", () => deletePurple(item.eventId));
-					} else {
-						status.addEventListener("click", () => cycleStatus(item.clientId, item.time));
-					}
-
-					appt.appendChild(pill);
-					appt.appendChild(status);
-					timeline.appendChild(appt);
-				});
-
-				agenda.appendChild(timeline);
-				updateHeader();
-        resizeAgendaPanel();
-			}
-      function mostraTab2() {
-        const list = document.getElementById("clientsList");
-
-        list.innerHTML = "";
-
-        clients.forEach((client) => {
-          const card = document.createElement("div");
-          card.className = "clientCard";
-          card.addEventListener("click", () => editClient(client.id));
-
-          const scheduleText = (client.schedule || [])
-            .map(s => weekdayName(s.weekday) + " " + s.time)
-            .join("<br>");
-
-          card.innerHTML = `
-            <div class="clientColor ${client.color}"></div>
-            <div class="clientName">${client.name}</div>
-            <div class="clientSchedule">${scheduleText}</div>
-            <div class="clientPayment">${paymentBadge(client)}</div>`;
-
-          card.querySelector(".clientPayment").addEventListener("click", (event) => {
-            event.stopPropagation();
-            openPaymentModal(client.id);
-          });
-
-          list.appendChild(card);
-        });
-      }
-      function mostraTab3() {
-        const list = document.getElementById("billingList");
-        const month = document.getElementById("billingMonth").value;
-        const year = document.getElementById("billingYear").value;
-        const prefix = `${year}-${month}`;
-
-        list.innerHTML = "";
-
-        const grouped = {};
-
-        events
-          .filter(e => e.date && e.date.startsWith(prefix))
-          .forEach(e => {
-            const client =
-              clients.find(c => c.id === e.clientId);
-
-            const name =
-              client ? client.name : e.name || "Walk-in";
-
-            if (!grouped[name]) {
-              grouped[name] = {
-                total: 0,
-                lines: []
-              };
-            }
-
-            const amount = amountForEvent(e);
-
-            grouped[name].total += amount;
-
-            grouped[name].lines.push({
-              date: e.date,
-              status: e.status,
-              amount
-            });
-          });
-
-        Object.keys(grouped)
-          .sort((a, b) => a.localeCompare(b, "pt-BR"))
-          .forEach(name => {
-            const data = grouped[name];
-
-            const card = document.createElement("div");
-            card.className = "billingCard";
-
-            card.innerHTML = `
-              <div class="billingHeader">
-                <span>${formatAmount(data.total)}</span>
-                <span>${name}</span>
-                <button class="shareBillingBtn" type="button">📤</button>
-              </div>
-            `;
-
-            card.querySelector(".shareBillingBtn").addEventListener("click", (event) => {
-              event.stopPropagation();
-              printInvoice(name);
-            });
-
-            data.lines
-              .sort((a, b) => a.date.localeCompare(b.date))
-              .forEach(line => {
-                const div = document.createElement("div");
-                div.className = "billingLine";
-
-                div.innerHTML = `
-                  <span>${STATUS_ICON[line.status] || ""} ${formatShortDate(line.date)}</span>
-                  <span>${formatAmount(line.amount)}</span>
-                `;
-
-                card.appendChild(div);
-              });
-
-            list.appendChild(card);
-          });
-      }
-      function mostraTab4() {
-        const ajustes = document.getElementById("ajustes");
-        ajustes.innerHTML = "Ajustes";
-      }
       function renderCalendar() {
         const grid = document.getElementById("calendarGrid");
 
@@ -896,7 +896,7 @@
 
             renderCalendar();
             mostraTab1();
-            updateHeader();
+            updateHeader(1);
           };
 
           grid.appendChild(div);
@@ -1050,21 +1050,31 @@
         document.getElementById("calendarPanel").classList.toggle("hidden");
         let icon = compactMode ? "img/ag-.svg" : "img/ag+.svg";
         btnImg.src = icon;
-        updateHeader();
+        updateHeader(1);
         mostraTab1();
       }
-      function updateHeader() {
+      function updateHeader(tab) 
+      {
         const title = document.getElementById("title");
 
-        if (compactMode && selectedDate) {
-          title.innerHTML = formatDate(selectedDate);
-          title.style.height = "30px";
-          title.style.paddingTop = "16px";
-        } else {
-          title.innerHTML = "";
-          title.style.height = "1px";
-          title.style.paddingTop = "1px";
-        }
+          if (tab===1)
+          {
+            if (compactMode && selectedDate) {
+              title.innerHTML = formatDate(selectedDate);
+              title.style.height = "30px";
+              title.style.paddingTop = "16px";
+            } else {
+              title.innerHTML = "";
+              title.style.height = "1px";
+              title.style.paddingTop = "1px";
+            }
+          }
+          else
+          {
+            if (tab===2){title.innerHTML = "Clientes";}
+            if (tab===3){title.innerHTML = "Fechamento";}
+            if (tab===4){title.innerHTML = "Ajustes";}
+          }
       }
       function weekdayName(day) {
         return ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"][day];
@@ -1121,7 +1131,7 @@
           clearAgenda();
         }
 
-        updateHeader();
+        updateHeader(1);
       };
       document.getElementById("nextMonth").onclick = () => {
         currentMonth++;
@@ -1143,7 +1153,7 @@
           clearAgenda();
         }
 
-        updateHeader();
+        updateHeader(1);
       };
       document.getElementById("btnToggle").addEventListener("click", toggleCalendar);
       document.getElementById("btnWalkIn").addEventListener("click", () => {
@@ -1165,6 +1175,7 @@
         document.getElementById("tab2").classList.remove("hidden");
         document.getElementById("tab3").classList.add("hidden");
         document.getElementById("tab4").classList.add("hidden");
+        updateHeader(2);
         mostraTab2();
       };
       document.getElementById("btnTab3").onclick = () => {
@@ -1175,6 +1186,7 @@
         document.getElementById("tab3").classList.remove("hidden");
         document.getElementById("tab4").classList.add("hidden");
         mostraTab3();
+        updateHeader(3);
       };
       document.getElementById("btnTab4").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "hidden";
@@ -1183,7 +1195,8 @@
         document.getElementById("tab2").classList.add("hidden");
         document.getElementById("tab3").classList.add("hidden");
         document.getElementById("tab4").classList.remove("hidden");
-        renderTab4();
+        mostraTab4();
+        updateHeader(4);
       };
 
 

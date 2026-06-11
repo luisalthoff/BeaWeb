@@ -14,7 +14,7 @@
 
   <body>
 
-<div id="main">
+  <div id="main">
     <!----------- MENU BOTTOM --------------->
     <nav class="floating-menu">
       <button id="btnTab1" class="menu-btn active">
@@ -99,12 +99,18 @@
       <div id="tab4" class="hidden">
         <div id="ajustes"></div>
       </div>
-    
-
-   
+    </div>   
 </div>
+
+<dialog id="myModal" class="modal-box">
+  <p>This is a centered modal!</p>
+  <button onclick="this.closest('dialog').close()"></button>
+</dialog>
+
+
+
     <!----------- AULA AVULSA (MODAL) --------------->
-    <div id="sessionModal" class="modal hidden">
+    <dialog id="sessionModal" class="modal hidden">
       <div class="sheet">
         <h2>Aula Avulsa</h2>
         <input
@@ -124,7 +130,7 @@
           <button id="btnSaveSession">Save</button>
         </div>
       </div>
-    </div>
+    </dialog>
     <!--========== MODAL ALUNOS ===========-->
     <div id="clientModal" class="modal hidden">
       <div class="modalContent">
