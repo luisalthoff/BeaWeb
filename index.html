@@ -14,52 +14,7 @@
 
   <body>
 
-    <!--======= TAB 1 (Calendario e Agenda) ===========-->
-
-    <div id="tab1">
-      <div class="floating-menu-top">
-        <button id="btnWalkIn" class="menu-btn-top">
-          <img src="img/avulso.svg" alt="Aula Avulsa">
-        </button>
-        <span>v1</span>
-        <button class="menu-btn-top" onclick="clearDatabase();">
-          <img src="img/trash.svg">
-        </button>
-        <div id="title">TITULO</div>
-        <button id="btnToggle" class="menu-btn-top">
-          <img src="img/toggle.svg">
-        </button>
-      </div>
- 
-      <!-- ======== CALENDARIO ========= -->
-      <div id="calendarPanel">
-        
-        <!--    <  MES/ANO  >      --> 
-        <div class="cabeca">
-          <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
-          <div id="monthLabel" style="font-size: var(--fntTit); color: var(--corBtn)"></div>
-          <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
-        </div>
-
-        <!--    Dom Seg Ter Qua Qui Sex Sab      -->  
-        <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
-          <div>D</div>
-          <div>S</div>
-          <div>T</div>
-          <div>Q</div>
-          <div>Q</div>
-          <div>S</div>
-          <div>S</div>
-        </div>
-
-        <!--    Grid com dias      -->  
-        <div id="calendarGrid"></div>
-      </div>
-
-      <!-- ======== AGENDA ========= -->
-      <div id="agendaPanel"></div>
-    </div>
-    
+<div id="main">
     <!----------- MENU BOTTOM --------------->
     <nav class="floating-menu">
       <button id="btnTab1" class="menu-btn active">
@@ -76,6 +31,78 @@
       </button>
     </nav>
 
+    <!----------- MENU TOP --------------->
+    <div class="floating-menu-top">
+      <button id="btnWalkIn" class="menu-btn-top">
+        <img src="img/avulso.svg" alt="Aula Avulsa">
+      </button>
+      <div id="title"></div>
+      <button id="btnToggle" class="menu-btn-top">
+        <img src="img/ag+.svg"  alt="Expande">
+      </button>
+    </div>
+    
+      <!--======= TAB 1 (Calendario e Agenda) ===========-->
+      <div id="tab1"> 
+        <div id="calendarPanel">
+        
+          <!--    <  MES/ANO  >      --> 
+          <div class="cabeca">
+            <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
+            <div id="monthLabel" style="font-size: var(--fntTit); color: var(--corFnt)"></div>
+            <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
+          </div>
+
+          <!--    Dom Seg Ter Qua Qui Sex Sab      -->  
+          <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
+            <div>D</div>
+            <div>S</div>
+            <div>T</div>
+            <div>Q</div>
+            <div>Q</div>
+            <div>S</div>
+            <div>S</div>
+          </div>
+
+          <!--    Grid com dias      -->  
+          <div id="calendarGrid"></div>
+        </div>
+
+        <!-- ======== AGENDA ========= -->
+        <div id="agendaPanel"></div>
+      </div>
+    
+      <!--======= TAB 2 (Clients) ===========-->
+      <div id="tab2" class="hidden">
+        <header class="hdrClient">
+          <div>Clientes</div>
+          <button id="btnAddClient">ᐩ🧘‍♀️</button>
+        </header>
+        <div id="clientsList"></div>
+      </div>
+
+      <!--====== TAB 3 (Fechamento) =========-->
+      <div id="tab3" class="hidden">
+        <header>
+          <button>&nbsp;</button>
+          <div>Fechamento</div>
+          <button>&nbsp;</button>
+        </header>
+        <div id="billingControls">
+          <select id="billingMonth"></select>
+          <select id="billingYear"></select>
+        </div>
+        <div id="billingList"></div>
+      </div>
+
+      <!--====== TAB 4 (App Settings) =========-->
+      <div id="tab4" class="hidden">
+        <div id="ajustes"></div>
+      </div>
+    
+
+   
+</div>
     <!----------- AULA AVULSA (MODAL) --------------->
     <div id="sessionModal" class="modal hidden">
       <div class="sheet">
@@ -98,35 +125,6 @@
         </div>
       </div>
     </div>
-
-    <!--======= TAB 2 (Clients) ===========-->
-    <div id="tab2" class="hidden">
-      <header class="hdrClient">
-        <div>Clientes</div>
-        <button id="btnAddClient">ᐩ🧘‍♀️</button>
-      </header>
-      <div id="clientsList"></div>
-    </div>
-
-    <!--====== TAB 3 (Fechamento) =========-->
-    <div id="tab3" class="hidden">
-      <header>
-        <button>&nbsp;</button>
-        <div>Fechamento</div>
-        <button>&nbsp;</button>
-      </header>
-      <div id="billingControls">
-        <select id="billingMonth"></select>
-        <select id="billingYear"></select>
-      </div>
-      <div id="billingList"></div>
-    </div>
-
-    <!--====== TAB 4 (App Settings) =========-->
-    <div id="tab4" class="hidden">
-      <div id="ajustes"></div>
-    </div>
-    
     <!--========== MODAL ALUNOS ===========-->
     <div id="clientModal" class="modal hidden">
       <div class="modalContent">

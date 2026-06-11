@@ -11,19 +11,22 @@
 --top-menu-height: 54px;
 
 /* CORES */
---corMenu: orange;
---corAgenda: #4a90e2;
---corCalend: color-mix(in srgb, var(--corAgenda), black 30%);
---corDflt: white;
---corBtn: var(--corDflt);
---corHglt: rgb(from var(--corDflt) calc(255 - r) calc(255 - g) calc(255 - b));
+--corBtn: #FF8C00;
+--corFnt: rgba(0,0,0,0.8);
+--corBC0: white;
+--corBC1: #DEE3E9;
+--corBC2: #EDF1F9;
 --corCnzEsc: #555;
+
+/*#4a90e2;   AZUL LEGAL*/
+
+
 --fntTit: 20px;
 --fntBtn: 28px;
 --fntDia: 20px;
 }
 
-html, body {
+html, body, #main {
   width: 100%;
   height: 100%;
 }
@@ -33,10 +36,9 @@ body
   font-family: helvetica, system-ui, Arial, sans-serif;
   margin: 0;
   min-height: 100%;
-  color: var(--corDflt);
+  color: var(--corFnt);
   position: relative;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  background: var(--corMenu);
   padding-top: calc(var(--safe-top) + var(--top-menu-height));
 }
 
@@ -48,14 +50,10 @@ body
   width: 100%;
   height: calc(var(--safe-top) + var(--top-menu-height));
   padding-top: var(--safe-top);
-  padding-left: 12px;
-  padding-right: 12px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  background: var(--corMenu);
+  background: var(--corBtn);
   z-index: 9999;
 }
 
@@ -66,15 +64,16 @@ body
   left: 0;
   width: 100%;
   z-index: 9999;
-  background-color: var(--corMenu);
+  background-color: var(--corBC2);
   display: flex;
   justify-content: space-between;
+  border: 1px solid gray;
   
   /* Keep your 12px layout padding but add the bottom safe inset to it */
   padding-top: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px);
 }
 
 .menu-btn-top img
@@ -83,8 +82,10 @@ body
   cursor: pointer;
   width: 34px;
   height: 34px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  margin-inline: 20px;
+  
 }
 
 .menu-btn img
@@ -99,8 +100,9 @@ body
 
 .menu-btn.active img
 {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(55%) sepia(93%) saturate(1419%) hue-rotate(360deg) brightness(102%) contrast(106%);
 }
+
 
 #tab2 {
   background: green;
@@ -144,7 +146,7 @@ body
 #calendarPanel {
   font-size: var(--fntDia);
   padding: 20px;
-  background: var(--corCalend);
+  background: var(--corBC2);
 }
 
 
@@ -153,7 +155,7 @@ body
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
   font-size: var(--fntDia);
-  color: var(--corDflt)
+  color: var(--corFnt)
 }
 
 
@@ -178,14 +180,14 @@ button {
 
 #btnAddClient {
   font-size: 32px;
-  background-color: transparent;
+  background-color: green;
   color: var(--corBtn);
 }
 
 header.hdrClient {
   color: var(--corBtn);
   text-align: center;
-  padding-left: 40px;
+  padding-left: 30px;
   font-size: var(--fntTit);
 }
 
@@ -193,7 +195,8 @@ header.hdrClient {
   font-size: var(--fntTit);
   display: grid;
   place-items: center;
-  color: pink;
+  color: var(--corBC0);
+  padding-bottom: 40px;
 }
 
 .appointment {
@@ -204,7 +207,7 @@ header.hdrClient {
 }
 
 .billingCard {
-  background: white;
+  background: green;
   margin: 10px;
   border-radius: 12px;
   overflow: hidden;
@@ -213,7 +216,7 @@ header.hdrClient {
 
 .billingHeader {
   background: #4a90e2;
-  color: white;
+  color: green;
   padding: 12px;
   display: flex;
   justify-content: space-between;
@@ -306,15 +309,15 @@ header.hdrClient {
 }
 
 .day.selected {
-  background: var(--corDflt);
-  color: var(--corHglt);
+  background: var(--corBtn);
+  color: corBC0;
   font-weight: 800;
 }
 
 .day.today {
-  color: blue;
+  
   font-weight: 800;
-  transform: scale(1.1);
+  border: 3px solid var(--corBtn);
 }
 
 .deleteSchedule {
@@ -395,7 +398,7 @@ header.hdrClient {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  color: white;
+  color: green;
   font-size: 28px;
   font-weight: bold;
 }
@@ -533,13 +536,13 @@ header.hdrClient {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   height: 10px;
-  border-top: 1px solid var(--corDflt);
-  border-bottom: 1px solid var(--corDflt);
+  border-top: 1px solid var(--corFnt);
+  border-bottom: 1px solid var(--corFnt);
   align-content: center;
   text-align: center;
   margin-top: 16px;
   margin-bottom: 16px;
-  color: var(--corDflt);
+  color: var(--corFnt);
 }
 
 .whiteBall {
@@ -563,7 +566,7 @@ header.hdrClient {
   /* esconder scrollbars */
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background: var(--corAgenda);
+  background: var(--corBC0);
 }
 
 /* esconder scrollbars */
@@ -578,7 +581,7 @@ header.hdrClient {
   position: absolute;
   left: 0;
   right: 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--corFnt);
 }
 
 .timeLabel {
@@ -586,14 +589,13 @@ header.hdrClient {
   left: 0;
   top: -10px;
   width: 60px;
-  color: var(--corDflt);
+  color: var(--corFnt);
   font-size: 16px;
-  background-color: var(--corAgenda);
+  background-color: var(--corBC0);
 }
 
 .timeLine {
   margin-left: 70px;
-  border-top: 1px red;
 }
 
 .timelineAppointment {
@@ -613,7 +615,7 @@ header.hdrClient {
   align-items: center;
   justify-content: flex-start;
 
-    padding-left: 8px;
+  padding-left: 8px;
 
   white-space: nowrap;
   overflow: hidden;

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="26.177181mm"
+   height="22.353165mm"
+   viewBox="0 0 26.177181 22.353165"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
+   sodipodi:docname="calclock.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.5954826"
+     inkscape:cx="40.18932"
+     inkscape:cy="120.01171"
+     inkscape:window-width="1171"
+     inkscape:window-height="1186"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Regular-S" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-92.074996,-137.31875)">
+    <g
+       id="Regular-S"
+       transform="matrix(0.26458333,0,0,0.26458333,89.557322,156.11761)">
+      <path
+         class="SFSymbolsPreviewWireframe"
+         d="m 65.7715,-26.8066 h 2.2461 c 1.416,0 1.9531,-0.4883 1.9531,-1.9043 v -2.2461 c 0,-1.416 -0.5371,-1.9043 -1.9531,-1.9043 h -2.2461 c -1.4649,0 -1.9531,0.4883 -1.9531,1.9043 v 2.2461 c 0,1.416 0.4882,1.9043 1.9531,1.9043 z"
+         id="path37"
+         style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.5" />
+      <path
+         class="monochrome-0 multicolor-0:systemRedColor hierarchical-0:secondary SFSymbolsPreviewWireframe"
+         d="M 22.2168,0.390625 H 73.877 c 8.3496,0 12.4511,-4.101565 12.4511,-12.304725 v -46.582 c 0,-8.2031 -4.1015,-12.3047 -12.4511,-12.3047 H 22.2168 c -8.3008,0 -12.45118,4.1016 -12.45118,12.3047 v 46.582 c 0,8.20316 4.15038,12.304725 12.45118,12.304725 z M 21.5332,-6.68945 c -3.0273,0 -4.7363,-1.61133 -4.7363,-4.78515 v -36.7188 c 0,-3.1738 1.709,-4.7851 4.7363,-4.7851 h 52.9785 c 3.0274,0 4.7852,1.6113 4.7852,4.7851 v 36.7188 c 0,3.17382 -1.7578,4.78515 -4.7852,4.78515 z"
+         id="path38"
+         style="opacity:1;fill:#ffffff;stroke:#f9f9f9;stroke-width:0.5;stroke-opacity:1" />
+      <path
+         class="monochrome-1 multicolor-1:systemRedColor hierarchical-1:secondary SFSymbolsPreviewWireframe"
+         d="m 40.625,-39.1602 h 2.2461 c 1.4648,0 1.9531,-0.4882 1.9531,-1.9043 v -2.246 c 0,-1.4161 -0.4883,-1.9043 -1.9531,-1.9043 H 40.625 c -1.416,0 -1.9043,0.4882 -1.9043,1.9043 v 2.246 c 0,1.4161 0.4883,1.9043 1.9043,1.9043 z m 12.5977,0 h 2.2461 c 1.416,0 1.9042,-0.4882 1.9042,-1.9043 v -2.246 c 0,-1.4161 -0.4882,-1.9043 -1.9042,-1.9043 h -2.2461 c -1.4649,0 -1.9532,0.4882 -1.9532,1.9043 v 2.246 c 0,1.4161 0.4883,1.9043 1.9532,1.9043 z m 12.5488,0 h 2.2461 c 1.416,0 1.9531,-0.4882 1.9531,-1.9043 v -2.246 c 0,-1.4161 -0.5371,-1.9043 -1.9531,-1.9043 h -2.2461 c -1.4649,0 -1.9531,0.4882 -1.9531,1.9043 v 2.246 c 0,1.4161 0.4882,1.9043 1.9531,1.9043 z m -37.6953,12.3536 h 2.2461 c 1.4648,0 1.9531,-0.4883 1.9531,-1.9043 v -2.2461 c 0,-1.416 -0.4883,-1.9043 -1.9531,-1.9043 h -2.2461 c -1.416,0 -1.9532,0.4883 -1.9532,1.9043 v 2.2461 c 0,1.416 0.5372,1.9043 1.9532,1.9043 z m 12.5488,0 h 2.2461 c 1.4648,0 1.9531,-0.4883 1.9531,-1.9043 v -2.2461 c 0,-1.416 -0.4883,-1.9043 -1.9531,-1.9043 H 40.625 c -1.416,0 -1.9043,0.4883 -1.9043,1.9043 v 2.2461 c 0,1.416 0.4883,1.9043 1.9043,1.9043 z m 12.5977,0 h 2.2461 c 1.416,0 1.9042,-0.4883 1.9042,-1.9043 v -2.2461 c 0,-1.416 -0.4882,-1.9043 -1.9042,-1.9043 h -2.2461 c -1.4649,0 -1.9532,0.4883 -1.9532,1.9043 v 2.2461 c 0,1.416 0.4883,1.9043 1.9532,1.9043 z m -25.1465,12.3535 h 2.2461 c 1.4648,0 1.9531,-0.4883 1.9531,-1.9043 v -2.2461 c 0,-1.416 -0.4883,-1.9043 -1.9531,-1.9043 h -2.2461 c -1.416,0 -1.9532,0.4883 -1.9532,1.9043 v 2.2461 c 0,1.416 0.5372,1.9043 1.9532,1.9043 z m 12.5488,0 h 2.2461 c 1.4648,0 1.9531,-0.4883 1.9531,-1.9043 v -2.2461 c 0,-1.416 -0.4883,-1.9043 -1.9531,-1.9043 H 40.625 c -1.416,0 -1.9043,0.4883 -1.9043,1.9043 v 2.2461 c 0,1.416 0.4883,1.9043 1.9043,1.9043 z m 12.5977,0 h 2.2461 c 1.416,0 1.9042,-0.4883 1.9042,-1.9043 v -2.2461 c 0,-1.416 -0.4882,-1.9043 -1.9042,-1.9043 h -2.2461 c -1.4649,0 -1.9532,0.4883 -1.9532,1.9043 v 2.2461 c 0,1.416 0.4883,1.9043 1.9532,1.9043 z"
+         id="path39"
+         style="opacity:1;fill:#ffffff;stroke:#000000;stroke-width:0.5" />
+      <path
+         class="monochrome-2 multicolor-2:tintColor hierarchical-2:primary SFSymbolsPreviewWireframe"
+         d="m 82.8125,13.1836 c 13.8184,0 25.3905,-11.57227 25.3905,-25.3906 0,-13.916 -11.4745,-25.3907 -25.3905,-25.3907 -13.916,0 -25.3906,11.4747 -25.3906,25.3907 0,13.96481 11.4258,25.3906 25.3906,25.3906 z"
+         id="path40"
+         style="opacity:1;fill:#ffffff;stroke:#ffffff;stroke-width:0.5;stroke-opacity:1" />
+      <path
+         class="monochrome-3 multicolor-3:systemGrayColor hierarchical-3:primary SFSymbolsPreviewWireframe"
+         d="m 82.8125,7.4707 c 10.6445,0 19.6775,-8.93554 19.6775,-19.6777 0,-10.791 -8.8865,-19.6778 -19.6775,-19.6778 -10.791,0 -19.6777,8.8868 -19.6777,19.6778 0,10.83981 8.8867,19.6777 19.6777,19.6777 z"
+         id="path41"
+         style="opacity:1;fill:none;stroke:#ffffff;stroke-width:0.5;stroke-opacity:1" />
+      <path
+         class="monochrome-4 multicolor-4:white hierarchical-4:primary SFSymbolsPreviewWireframe"
+         d="m 73.8281,-9.17969 c -1.416,0 -2.539,-1.12301 -2.539,-2.49021 0,-1.416 1.1718,-2.5391 2.539,-2.5391 h 6.6407 v -9.1308 c 0,-1.3672 1.123,-2.4903 2.5878,-2.4903 1.3672,0 2.5391,1.1231 2.5391,2.4903 v 11.6699 c 0,1.416 -1.123,2.49021 -2.5391,2.49021 z"
+         id="path42"
+         style="opacity:1;fill:#ffffff;stroke:#b9b9b9;stroke-width:0.5;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

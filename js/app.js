@@ -273,10 +273,6 @@
         context.font = font;
         return context.measureText(text).width;
       }
-      function giraFlecha() {
-        const el = document.getElementById('btnToggle');
-          el.style.transform = (el.style.transform === 'scaleY(-1)') ? 'scaleY(1)' : 'scaleY(-1)';
-      }
       function isoDate(date) {
         const y = date.getFullYear();
         const m = String(date.getMonth() + 1).padStart(2, "0");
@@ -1047,11 +1043,15 @@
         }
       }
       function toggleCalendar() {
+        const btnTog = document.getElementById('btnToggle');
+        const btnImg = btnTog.querySelector('img');
+      
         compactMode = !compactMode;
         document.getElementById("calendarPanel").classList.toggle("hidden");
-        giraFlecha();
+        let icon = compactMode ? "img/ag-.svg" : "img/ag+.svg";
+        btnImg.src = icon;
         updateHeader();
-        resizeAgendaPanel();
+        mostraTab1();
       }
       function updateHeader() {
         const title = document.getElementById("title");
