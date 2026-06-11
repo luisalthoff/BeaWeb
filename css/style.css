@@ -9,8 +9,14 @@
 { 
 --safe-top: env(safe-area-inset-top, 0px);
 --top-menu-height: 54px;
---corBtn: rgb(0, 0, 200);
---corDflt: black;
+
+/* CORES */
+--corMenu: orange;
+--corAgenda: #4a90e2;
+--corCalend: color-mix(in srgb, var(--corAgenda), black 30%);
+--corDflt: white;
+--corBtn: var(--corDflt);
+--corHglt: rgb(from var(--corDflt) calc(255 - r) calc(255 - g) calc(255 - b));
 --corCnzEsc: #555;
 --fntTit: 20px;
 --fntBtn: 28px;
@@ -22,7 +28,7 @@ body
   font-family: helvetica, system-ui, Arial, sans-serif;
   margin: 0;
   min-height: 100%;
-  color: var(--corCnzEsc);
+  color: var(--corDflt);
   position: relative;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   background: #4a90e2;
@@ -47,7 +53,7 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  background: #4a90e2;
+  background: var(--corMenu);
   z-index: 9999;
 }
 
@@ -58,7 +64,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 9999;
-  background-color: orange;
+  background-color: var(--corMenu);
   display: flex;
   justify-content: space-between;
   
@@ -118,6 +124,7 @@ body {
 #calendarPanel {
   font-size: var(--fntDia);
   padding: 20px;
+  background: var(--corCalend);
 }
 
 
@@ -156,15 +163,17 @@ button {
 }
 
 header.hdrClient {
-  color: black;
+  color: var(--corBtn);
   text-align: center;
   padding-left: 40px;
   font-size: var(--fntTit);
 }
+
 #title {
   font-size: var(--fntTit);
   display: grid;
   place-items: center;
+  color: pink;
 }
 
 .appointment {
@@ -215,24 +224,6 @@ header.hdrClient {
   font-size: 16px;
 }
 
-#bottomNav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 430px;
-  height: 60px;
-  background: transparent;
-  border-top: 1px solid #ddd;
-  display: flex;
-}
-
-#bottomNav button {
-  flex: 1;
-  border: none;
-  background: rgba(255, 255, 255, 0.5);
-  font-size: 24px;
-}
-
 .buttons {
   display: flex;
   justify-content: flex-end;
@@ -242,28 +233,6 @@ header.hdrClient {
 
 .buttons button {
   padding: 10px 20px;
-}
-
-#calendarHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: var(--fntTit);
-}
-
-#calendarHeader button {
-  border: none;
-  background: none;
-  font-size: var(--fntTit);        
-  cursor: pointer;
-  color: var(--corCnzEsc);
-}
-
-#calendarPanel input {
-  width: 100%;
-  height: 40px;
-  font-size: 18px;
 }
 
 .clientCard {
@@ -300,7 +269,6 @@ header.hdrClient {
 
 .clientName {
   font-size: 20px;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
@@ -318,9 +286,9 @@ header.hdrClient {
 }
 
 .day.selected {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--corDflt);
+  color: var(--corHglt);
   font-weight: 800;
-  transform: scale(1.2);
 }
 
 .day.today {
@@ -545,12 +513,13 @@ header.hdrClient {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   height: 10px;
-  border-top: 2px solid rgba(0,0,0,0.1);
-  border-bottom: 2px solid rgba(0,0,0,0.1);
+  border-top: 1px solid var(--corDflt);
+  border-bottom: 1px solid var(--corDflt);
   align-content: center;
   text-align: center;
   margin-top: 16px;
   margin-bottom: 16px;
+  color: var(--corDflt);
 }
 
 .whiteBall {
@@ -566,7 +535,7 @@ header.hdrClient {
 
 #agendaPanel {
   position: relative;
-  height: calc(100dvh - 280px); /* fallback; JS recalculates the exact height */
+  height: calc(100dvh - 280px);
   min-height: 180px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -574,6 +543,7 @@ header.hdrClient {
   /* esconder scrollbars */
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: var(--corAgenda);
 }
 
 /* esconder scrollbars */
@@ -598,7 +568,7 @@ header.hdrClient {
   width: 64px;
   color: #999;
   font-size: 16px;
-  background-color: white;
+  background-color: assass;
 }
 
 .timeLine {
