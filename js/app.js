@@ -14,6 +14,8 @@
       // Select all buttons inside the floating menu
       const buttons = document.querySelectorAll('.menu-btn');
 
+      alert(window.navigator.standalone ? "STANDALONE" : "SAFARI");
+
       buttons.forEach(button => {
         button.addEventListener('click', () => {
           // 1. Remove the active class from whichever button currently has it
