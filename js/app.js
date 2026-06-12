@@ -14,7 +14,7 @@
       // Select all buttons inside the floating menu
       const buttons = document.querySelectorAll('.menu-btn');
 
-      alert(window.navigator.standalone ? "STANDALONE" : "SAFARI");
+      alert(window.navigator.standalone ? "STANDALONE" : "SAFARI2");
 
       buttons.forEach(button => {
         button.addEventListener('click', () => {
