@@ -40,7 +40,6 @@ html, body, .floating-menu-top, #main {
   height: var(--safe-top);
   background: var(--corBtn);
   z-index: 10000;
-  pointer-events: none;
 }
 
 body 
