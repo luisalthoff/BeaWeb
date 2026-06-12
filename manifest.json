@@ -2,5 +2,7 @@
   "name": "BeaWeb",
   "short_name": "BeaApp",
   "start_url": "https://luisalthoff.github.io/BeaWeb/",
-  "display": "standalone"
+  "display": "standalone",
+  "background_color": "#FF8C00;",
+  "theme_color": "#FF8C00;"
   }
