@@ -26,9 +26,21 @@
 --fntDia: 20px;
 }
 
-html, body {
+html, body, .floating-menu-top, #main {
   width: 100%;
   height: 100%;
+  background: var(--corBtn);
+}
+
+#main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--safe-top);
+  background: var(--corBtn);
+  z-index: 10000;
+  pointer-events: none;
 }
 
 body 
@@ -43,7 +55,7 @@ body
 }
 
 .modal-box {
-  position: flex;     /* Ignores body padding and fits to screen viewport */
+  position: fixed;      /*Ignores body padding and fits to screen viewport */
   top: 50%;            /* Aligns top edge to screen center */
   left: 50%;           /* Aligns left edge to screen center */
   transform: translate(-50%, -50%); /* Offsets own height/width to center perfectly */
@@ -318,7 +330,7 @@ header.hdrClient {
 
 .day.selected {
   background: var(--corBtn);
-  color: corBC0;
+  color: var(--corBC0);
   font-weight: 800;
 }
 
