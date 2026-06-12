@@ -4,6 +4,9 @@
     <!-- BeaWeb-6-6-26.html -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="img/icon-180.png">
 
     <title>Bea Web</title>
     <link rel="manifest" href="/manifest.json" />
@@ -42,35 +45,35 @@
       </button>
     </div>
     
-      <!--======= TAB 1 (Calendario e Agenda) ===========-->
-      <div id="tab1"> 
-        <div id="calendarPanel">
+    <!--======= TAB 1 (Calendario e Agenda) ===========-->
+    <div id="tab1"> 
+      <div id="calendarPanel">
         
-          <!--    <  MES/ANO  >      --> 
-          <div class="cabeca">
-            <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
-            <div id="monthLabel" style="font-size: var(--fntTit); color: var(--corFnt)"></div>
-            <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
-          </div>
-
-          <!--    Dom Seg Ter Qua Qui Sex Sab      -->  
-          <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
-            <div>D</div>
-            <div>S</div>
-            <div>T</div>
-            <div>Q</div>
-            <div>Q</div>
-            <div>S</div>
-            <div>S</div>
-          </div>
-
-          <!--    Grid com dias      -->  
-          <div id="calendarGrid"></div>
-        </div>
-
-        <!-- ======== AGENDA ========= -->
-        <div id="agendaPanel"></div>
+      <!--    <  MES/ANO  >      --> 
+      <div class="cabeca">
+        <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
+        <div id="monthLabel" style="font-size: var(--fntTit); color: var(--corFnt)"></div>
+        <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
       </div>
+
+      <!--    Dom Seg Ter Qua Qui Sex Sab      -->  
+      <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
+        <div>D</div>
+        <div>S</div>
+        <div>T</div>
+        <div>Q</div>
+        <div>Q</div>
+        <div>S</div>
+        <div>S</div>
+      </div>
+
+      <!--    Grid com dias      -->  
+      <div id="calendarGrid"></div>
+    </div>
+
+    <!-- ======== AGENDA ========= -->
+    <div id="agendaPanel"></div>
+  </div>
     
       <!--======= TAB 2 (Clients) ===========-->
       <div id="tab2" class="hidden">
