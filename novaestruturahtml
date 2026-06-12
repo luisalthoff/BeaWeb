@@ -19,93 +19,57 @@
 
   <body>
 
-  <div id="main">
-    <!----------- MENU BOTTOM --------------->
-    <nav class="floating-menu">
-      <button id="btnTab1" class="menu-btn active">
-        <img src="img/calendario.svg" alt="" />
-      </button>
-      <button id="btnTab2" class="menu-btn">
-        <img src="img/clientes.svg" alt="" />
-      </button>
-      <button id="btnTab3" class="menu-btn">
-        <img src="img/fechamento.svg" alt="" />
-      </button>
-      <button id="btnTab4" class="menu-btn">
-        <img src="img/ajustes.svg" alt="" />
-      </button>
-    </nav>
-
-    <!----------- MENU TOP --------------->
-    <div class="floating-menu-top">
-      <button id="btnWalkIn" class="menu-btn-top">
-        <img src="img/avulso.svg" alt="Aula Avulsa">
-      </button>
-      <div id="title"></div>
-      <button id="btnToggle" class="menu-btn-top">
-        <img src="img/ag+.svg"  alt="Expande">
-      </button>
+    <div id="main">
+      <nav class="floating-menu">
+        <button id="btnTab1" class="menu-btn active"><img src="img/calendario.svg" alt="" /></button>
+        <button id="btnTab2" class="menu-btn"><img src="img/clientes.svg" alt="" /></button>
+        <button id="btnTab3" class="menu-btn"><img src="img/fechamento.svg" alt="" /></button>
+        <button id="btnTab4" class="menu-btn"><img src="img/ajustes.svg" alt="" /></button>
+      </nav>
+      <div class="floating-menu-top"><button id="btnWalkIn" class="menu-btn-top"><img src="img/avulso.svg" alt="Aula Avulsa"></button>
+      <div id="tab1"></div> 
+      <div id="tab2"></div>
+      <div id="tab3"></div> 
+      <div id="tab4"></div> 
     </div>
+ </body>
+</html>
+  <!-- div id="main">
     
-    <!--======= TAB 1 (Calendario e Agenda) ===========-->
-    <div id="tab1"> 
-      <div id="calendarPanel">
-        
-        <!--    <  MES/ANO  >      --> 
-        <div class="cabeca">
-          <button id="prevMonth" style="font-size: var(--fntTit); color: var(--corBtn)">◀</button>
-          <div id="monthLabel" style="font-size: var(--fntTit); color: var(--corFnt)"></div>
-          <button id="nextMonth" style="font-size: var(--fntTit); color: var(--corBtn)">▶</button>
-        </div>
+    
 
-        <!--    Dom Seg Ter Qua Qui Sex Sab      -->  
-        <div id="weekdays" style="padding-top: 20px; padding-bottom: 20px">
-          <div>D</div>
-          <div>S</div>
-          <div>T</div>
-          <div>Q</div>
-          <div>Q</div>
-          <div>S</div>
-          <div>S</div>
-        </div>
+    
+    
+    
+  
+   
 
-        <!--    Grid com dias      -->  
-        <div id="calendarGrid">
+    
+    <div id="agendaPanel"></div>
+  </div>
+    
+
+      
+
+   
+      <div id="tab3" class="hidden">
+        <header>
+          <button>&nbsp;</button>
+          <div>Fechamento</div>
+          <button>&nbsp;</button>
+        </header>
+        <div id="billingControls">
+          <select id="billingMonth"></select>
+          <select id="billingYear"></select>
         </div>
+        <div id="billingList"></div>
       </div>
 
-      <!-- ======== AGENDA ========= -->
-      <div id="agendaPanel"></div>
-    </div>
-    
-    <!--======= TAB 2 (Clients) ===========-->
-    <div id="tab2" class="hidden">
-      <header class="hdrClient">
-        <div>Clientes</div>
-          <button id="btnAddClient">ᐩ🧘‍♀️</button>
-      </header>
-      <div id="clientsList"></div>
-    </div>
-
-    <!--====== TAB 3 (Fechamento) =========-->
-    <div id="tab3" class="hidden">
-      <header>
-        <button>&nbsp;</button>
-        <div>Fechamento</div>
-        <button>&nbsp;</button>
-      </header>
-      <div id="billingControls">
-        <select id="billingMonth"></select>
-        <select id="billingYear"></select>
+      <div id="tab4" class="hidden">
+        <div id="ajustes"></div>
       </div>
-      <div id="billingList"></div>
-    </div>
-
-    <!--====== TAB 4 (App Settings) =========-->
-    <div id="tab4" class="hidden">
-      <div id="ajustes"></div>
-    </div>
-  </div>   
+    </div>   
+</div>
 
 <dialog id="myModal" class="modal-box">
   <p>This is a centered modal!</p>
@@ -114,7 +78,7 @@
 
 
 
-    <!----------- AULA AVULSA (MODAL) --------------->
+    
     <dialog id="sessionModal" class="modal hidden">
       <div class="sheet">
         <h2>Aula Avulsa</h2>
@@ -136,7 +100,7 @@
         </div>
       </div>
     </dialog>
-    <!--========== MODAL ALUNOS ===========-->
+    
     <div id="clientModal" class="modal hidden">
       <div class="modalContent">
         <h2 id="clientModalTitle">Dados</h2>
@@ -170,7 +134,6 @@
       </div>
     </div>
 
-    <!--========== MODAL PAGAMENTOS ===========-->
     <div id="paymentModal" class="modal hidden">
       <div class="modalContent">
         <h2 id="paymentClientName"></h2>
@@ -182,8 +145,7 @@
         </div>
       </div>
     </div>
-
-  </body>
-</html>
+-->
+ 
 
 

@@ -20,8 +20,6 @@
 
 /*#4a90e2;   AZUL LEGAL*/
 
-
---fntTit: 20px;
 --fntBtn: 28px;
 --fntDia: 20px;
 }
@@ -149,20 +147,9 @@ body
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: var(--fntTit);
-  padding: 10px;
+  font-size: var(--fntDia);
   margin-inline: auto;
   padding-inline: 30px;
-}
-.cabeca2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: var(--fntTit);
-  padding: 10px;
-  margin-inline: auto;
-  padding-inline: 30px;
-  height: 60px;       
 }
 
 #calendarPanel {
@@ -556,13 +543,8 @@ header.hdrClient {
 #weekdays {   
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  height: 10px;
-  border-top: 1px solid var(--corFnt);
-  border-bottom: 1px solid var(--corFnt);
   align-content: center;
   text-align: center;
-  margin-top: 16px;
-  margin-bottom: 16px;
   color: var(--corFnt);
 }
 
