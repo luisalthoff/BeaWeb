@@ -103,9 +103,11 @@ body
   cursor: pointer;
   width: 34px;
   height: 34px;
-  margin-top: 10px;
-  margin-bottom: 4px;
   margin-inline: 20px;
+  display: block;
+/*  margin-top: 10px;
+  margin-bottom: 4px;
+*/
   
 }
 
@@ -216,7 +218,6 @@ header.hdrClient {
   display: grid;
   place-items: center;
   color: var(--corBC0);
-  padding-bottom: 40px;
 }
 
 .appointment {
@@ -271,7 +272,7 @@ header.hdrClient {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 
 .buttons button {
