@@ -14,7 +14,7 @@
       // Select all buttons inside the floating menu
       const buttons = document.querySelectorAll('.menu-btn');
 
-      //alert(window.navigator.standalone ? "STANDALONE" : "SAFARI2");
+      //alert(window.navigator.standalone ? "STANDALONE" : "SAFARI3");
 
       buttons.forEach(button => {
         button.addEventListener('click', () => {
@@ -1157,10 +1157,13 @@
 
         updateHeader(1);
       };
+
+      //MENU-TOP
+      document.getElementById("btnWalkIn").addEventListener("click", () => {openSessionModal();});
+      document.getElementById("lixo").addEventListener("click", () => {clearDatabase();});      
       document.getElementById("btnToggle").addEventListener("click", toggleCalendar);
-      document.getElementById("btnWalkIn").addEventListener("click", () => {
-        openSessionModal();
-      });
+      
+      //TABS
       document.getElementById("btnTab1").onclick = () => {
         document.getElementById("btnWalkIn").style.visibility = "visible";
         document.getElementById("btnToggle").style.visibility = "visible";
