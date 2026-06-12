@@ -26,9 +26,6 @@
 --fntDia: 20px;
 }
 
-html {
-  min-height: 100dvh;
-}
 
 html, body, .floating-menu-top, #main {
   width: 100%;
